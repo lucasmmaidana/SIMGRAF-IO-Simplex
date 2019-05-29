@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="utf-8">
+  <title>JSX : JavaScript simpleX</title>
+  <link type="text/css" href="css/themes/base/jquery.ui.all.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.tabs.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.button.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.mouse.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.slider.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.selectable.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.ui.accordion.js"></script>
+  <script type="text/javascript" src="js/ui/jquery.multipleselectbox.js"></script>
+  <script type="text/javascript" src="js/racional.js"></script>
+  <script type="text/javascript" src="js/objetos.js"></script>
+  <script type="text/javascript" src="js/grafica.js"></script>
+  <script type="text/javascript" src="js/jsx.js"></script>
+  <script type="text/javascript" src="js/themeswitchertool.js"></script>
+  <link type="text/css" href="css/themes/demos.css" rel="stylesheet" />
+  <link type="text/css" href="css/themes/multipleselectbox.css" rel="stylesheet" />
+  <link type="text/css" href="css/cupertino/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+  <link type="text/css" href="css/jsx.css" rel="stylesheet" />
+ </head>
+ <body>
+  <div id="cabecera" class="ui-state-default ui-corner-all">
+   Javascript SimpleX
+   <div id="theme"></div>
+  </div>
+  <div id="simplex_tabs">
+   <ul>
+    <li><a href="#tab_simplex">Simplex</a></li>
+    <li><a href="#tab_grafica">Gr&aacute;fica</a></li>
+    <li><a href="#tab_teoria">Teor&iacute;a</a></li>
+    <li><a href="#tab_acercade">Acerca de...</a></li>
+   </ul>
+   <div id="tab_simplex">
+    <div id="jsx_funcion_objetivo">
+     <div class="titulo ui-state-default ui-corner-all">Funci&oacute;n objetivo</div>
+     <div class="contenido ui-corner-all">
+      <div id="jsx_fo_tipo">
+       <input type="radio" id="jsx_fo_tipo_max" name="jsx_fo_tipo" checked="checked" />
+       <label for="jsx_fo_tipo_max">Maximizar</label>
+       <input type="radio" id="jsx_fo_tipo_min" name="jsx_fo_tipo" />
+       <label for="jsx_fo_tipo_min">Minimizar</label>
+      </div>
+      <div id="jsx_fo_numvar">
+       <label for="jsx_fo_numvar_n">Variables</label>
+       <input disabled="disabled" type="text" id="jsx_fo_numvar_n" style="border:0; color:#555; background-color: transparent; font-weight:bold;" />
+       <div id="jsx_fo_numvar_s"></div>
+      </div>
+      <div id="jsx_fo_fo">
+       <div id="jsx_fo_fo_root"><div><input type="radio" checked="checked" /><label>+</label><input type="radio" /><label>-</label></div><input type="text" /> X</div>
+       <div id="jsx_fo_fo_cont"></div>
+      </div>
+     </div>
+    </div>
+    <div id="jsx_restricciones">
+     <div class="titulo ui-state-default ui-corner-all">Restricciones</div>
+     <div class="contenido ui-corner-all">
+      <table id="jsx_res">
+       <tr>
+        <td>
+         <div id="jsx_res_nueva">
+          <div id="jsx_res_fo_cont"></div>
+          <div id="jsx_res_fo_signo">
+           <div id="jsx_res_fo_signo_opt">
+            <input type="radio" checked="checked" id="jsx_res_fo_signo_opt_lt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_lt">&le;</label><input type="radio" id="jsx_res_fo_signo_opt_eq" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_eq">=</label><input type="radio" id="jsx_res_fo_signo_opt_gt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_gt">&ge;</label>
+           </div>
+           <input type="text" id="jsx_res_fo_limite" />
+          </div>
+          <div id="jsx_res_fo_nombre">
+           <button id="jsx_res_fo_boton">A&ntilde;adir</button>
+           <input type="text" id="jsx_res_fo_nom" />
+          </div>
+         </div>
+        </td>
+        <td>
+         <div id="jsx_res_cont">
+          <div class="ui-state-default ui-corner-all">Restricciones actuales</div>
+          <ol id="jsx_res_act"></ol>
+         </div>
+        </td>
+       </tr>
+      </table>
+     </div>
+    </div>
+    <div id="jsx_problema">
+     <div class="titulo ui-state-default ui-corner-all">Problema</div>
+     <div class="contenido ui-corner-all">
+      <table>
+       <tr>
+        <td id="jsx_pro_botonestd" rowspan="2">
+         <div id="jsx_pro_botones">
+          <button>Nuevo problema</button>
+          <button>Resolver problema</button>
+         </div>
+        </td>
+        <td style="height: 0em;">
+         <div class="ui-state-default ui-corner-all" style="padding: 0.5em;margin-left: 1em;padding-left: 1em;">Quitando desigualdades:</div>
+        </td>
+        <td id="jsx_segundo1" style="padding-left: 1em; visibility: hidden;">
+         <div id="metodoartificial">
+          <input type="radio" id="dosfases" name="metodoartificial" checked="checked" /><label for="dosfases">2 fases</label>
+          <input type="radio" id="mgrande" name="metodoartificial" /><label for="mgrande">M grande</label>
+         </div>
+        </td>
+        <td id="jsx_pro_botones2" rowspan="2">
+         <select id="jsx_pro_ejemplos" onclick="jsx_ejemplo();">
+          <option value="null">Seleccione un ejemplo</option>
+          <option value="ej0">Ejemplo 0</option> <!-- sin artificiales -->
+          <option value="ej1">Ejemplo 1</option> <!-- sin artificiales -->
+          <option value="ej2">Ejemplo 2</option> <!-- sin artificiales -->
+          <option value="ej3">Ejemplo 3</option> <!-- 1/3 artificiales -->
+          <option value="ej4">Ejemplo 4</option> <!-- 2/3 artificiales -->
+          <option value="ej5">Ejemplo 5</option> <!-- 1/2 artificiales infactible -->
+          <option value="ej6">Ejemplo 6</option> <!-- 3/3 artificiales ilimitado -->
+         </select>
+        </td>
+       </tr>
+       <tr>
+        <td style="width: 47%; margin: 0 auto;">
+         <div id="jsx_pro_p1"></div>
+        </td>
+        <td id="jsx_segundo2" style="width: 47%; visibility: hidden;">
+         <div id="jsx_pro_p2"></div>
+        </td>
+       </tr>
+      </table>
+     </div>
+    </div>
+    <div id="jsx_solucion">
+     <div class="titulo ui-state-default ui-corner-all">Soluci&oacute;n</div>
+     <div class="contenido" id="jsx_solucion_pasos">
+     </div>
+    </div>
+   </div>
+   <div id="tab_grafica">
+    <canvas class="ui-corner-all" id="lienzo" width="700" height="700" onmouseout="g00.limpiarDatos();" onclick="g00.eventoClick(event);">
+     Su navegador no soporta Canvas.
+    </canvas>
+    <table id="jsx_grafica_tabla">
+     <tr>
+      <td>
+       <div id="configuracion4" class="ui-corner-all">
+        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Problema</div>
+        <div style="display: none;">
+         <div>
+          <select id="fo_obj">
+           <option selected="selected" value="max">MAX</option>
+           <option value="min">MIN</option>
+          </select>
+          <input id="fo_x" type="text"><label for="fo_x">X</label>
+          <select id="fo_op">
+           <option selected="selected" value="+">+</option>
+           <option value="-">-</option>
+          </select>
+          <input id="fo_y" type="text"><label for="fo_y">Y</label>
+          <input value="Fijar" onclick="nuevaFuncionObjetivo();" type="button">
+         </div>
+         <div>
+          <input id="nrest_x" type="text"><label for="nrest_x">X</label>
+          <select id="nrest_op">
+           <option selected="selected" value="+">+</option>
+           <option value="-">-</option>
+          </select>
+          <input id="nrest_y" type="text"><label for="nrest_y">Y</label>
+          <select id="nrest_signo">
+           <option selected="selected" value="&lt;=">&lt;=</option>
+           <option value="&gt;=">&gt;=</option>
+          </select>
+          <input id="nrest_limite" type="text">
+          <input checked="checked" id="nrest_mostrable" type="checkbox">
+          <input value="+" onclick="nuevaRestriccion();" type="button">
+         </div>
+         <div id="restricciones">
+         </div>
+         <div>
+          <label for="ejemplos">Ejemplos</label> 
+          <select id="ejemplos" onchange="ejemplos(this.value);">
+           <option selected="selected">Ning&uacute;n ejemplo</option>
+           <option>Ejemplo 1</option>
+           <option>Ejemplo 2</option>
+           <option>Ejemplo 3</option>
+           <option>Ejemplo 4</option>
+          </select>
+         </div> 
+        </div>
+       </div>
+      </td>
+      <td>
+       <div id="configuracion2" class="ui-corner-all">
+        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar lienzo</div>
+        <div style="display: none;">
+         <div>
+          <label for="ancho">Ancho del lienzo</label> 
+          <input id="ancho" value="700" type="text">
+         </div>
+         <div>
+          <label for="alto">Alto del lienzo</label> 
+          <input id="alto" value="700" type="text">
+         </div>
+         <div>
+          <input value="Aplicar cambios en la gr&aacute;fica y el lienzo" onclick="ejecutarConfiguracion2();" type="button">
+         </div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <div id="configuracion3" class="ui-corner-all">
+        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Manipular gr&aacute;fica</div>
+        <div style="display: none;">
+         <div>
+          <label for="aumentar">Aumentar</label> 
+          <input id="aumentar" onclick="g00.setAumentar(this.checked?true:false);" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <input value="Deshacer aumento" onclick="g00.deshacerAumento();" type="button">
+         </div>
+         <div>
+          <label for="marcarrest">Marcar restricciones</label> 
+          <input id="marcarrest" onclick="g00.setMarcarRest(this.checked?true:false);" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <label for="fijarenteros">Ajustar a enteros</label> 
+          <input id="fijarenteros" onclick="g00.setFijarEnteros(this.checked?true:false);" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <label for="fijarcortes">Ajustar a intersecciones</label> 
+          <input id="fijarcortes" onclick="g00.setFijarCortes(this.checked?true:false);" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <label for="usarracionales">Mostrar coordenadas como racionales</label> 
+          <input id="usarracionales" onclick="g00.setUsarRacionales(this.checked?true:false);" type="checkbox">
+         </div>
+        </div>
+       </div>
+      </td>
+      <td>
+       <div id="configuracion" class="ui-corner-all">
+        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar gr&aacute;fica</div>
+        <div style="display: none;">
+         <div>
+          <label for="x1">Eje X</label> de 
+          <input id="x1" value="0" type="text"> a 
+          <input id="x2" value="10" type="text">
+         </div>
+         <div>
+          <label for="y1">Eje Y</label> de 
+          <input id="y1" value="0" type="text"> a 
+          <input id="y2" value="10" type="text">
+         </div>
+         <div>
+          <label for="marcas">N&uacute;mero de marcas</label> 
+          <input id="marcas" value="100" type="text">
+         </div>
+         <div>
+          <label for="avance">Numerar 1 de cada</label> 
+          <input id="avance" value="10" type="text"> marcas
+         </div>
+         <div>
+          <label for="precisionx">Precisi&oacute;n del eje X</label> 
+          <input id="precisionx" value="0" type="text"> decimales
+         </div>
+         <div>
+          <label for="precisiony">Precisi&oacute;n del eje Y</label> 
+          <input id="precisiony" value="0" type="text"> decimales
+         </div>
+         <div>
+          <label for="horizontales">Lineas horizontales</label> 
+          <input id="horizontales" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <label for="verticales">Lineas verticales</label> 
+          <input id="verticales" checked="checked" type="checkbox">
+         </div>
+         <div>
+          <input value="Aplicar cambios en la gr&aacute;fica" onclick="ejecutarConfiguracion();" type="button">
+         </div>
+        </div>
+       </div>
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div id="tab_teoria">
+    <table>
+     <tr>
+      <td><a href="rsc/resumen.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
+      <td><a href="rsc/tema2.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
+     </tr>
+     <tr>
+      <td><a href="rsc/resumen.pdf">Resumen Simplex</a></td>
+      <td><a href="rsc/tema2.pdf">El modelo matem&aacute;tico</a></td>
+     </tr>
+     <tr>
+      <td><a href="rsc/tema3.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
+      <td><a href="rsc/tema4.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
+     </tr>
+     <tr>
+      <td><a href="rsc/tema3.pdf">El algoritmo del Simplex</a></td>
+      <td><a href="rsc/tema4.pdf">La soluci&oacute;n inicial</a></td>
+     </tr>
+    </table>
+   </div>
+   <div id="tab_acercade">
+    <p>
+        Javascript SimpleX es un proyecto desarrollado para el departamento de Estad&iacute;stica e Investigaci&oacute;n Operativa de la Universidad de Sevilla con el objetivo de proporcionar una herramienta did&aacute;ctica orientada tanto a alumnos como a profesores, que en este caso, se centra en la resoluci&oacute;n de los problemas de programaci&oacute;n lineal haciendo uso del algoritmo del Simplex y represent&aacute;ndolos gr&aacute;ficamente.
+    </p>
+    <p>
+     Esta herramienta se distribuye bajo la licencia <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL v2</a>, tanto la licencia como el <a href="rsc/jsx.zip">c&oacute;digo fuente</a> est&aacute;n disponibles para su descarga.
+    </p>
+    <br />
+    <p>
+     <b>Ana Delgado Vela</b>: anadelgadovela(at)hotmail(dot)com
+    </p>
+    <p>
+     <b>Marina Cabello Mart&iacute;nez</b>: marinacabellomartinez(at)gmail(dot)com
+    </p>
+   </div>
+  </div>
+  <div id="pie">
+   Javascript SimpleX &copy; 2010
+   <div>
+    <img src="img/validhtml.png" alt="W3C HTML5 Valido" />
+    <img src="img/validcss.png" alt="W3C CSS3 Valido" />
+   </div>
+  </div>
+ </body>
+</html>
