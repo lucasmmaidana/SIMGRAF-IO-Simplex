@@ -1,0 +1,372 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+}
+* {
+  box-sizing: border-box;;
+  margin: 0;
+  padding: 0;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:visited {
+  color:inherit;
+}
+/*COLORES*/
+:root {
+  --oscuro: #001021;
+  --azul: #3E78B2;
+  --naranja: #D16014;
+  --verde: #7BC950;
+  --gris: #C0D6DF;
+}
+
+#landing {
+  background-color: var(--azul);
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Cpath fill='%2336699b' fill-opacity='0.53' d='M192 15v2a11 11 0 0 0-11 11c0 1.94 1.16 4.75 2.53 6.11l2.36 2.36a6.93 6.93 0 0 1 1.22 7.56l-.43.84a8.08 8.08 0 0 1-6.66 4.13H145v35.02a6.1 6.1 0 0 0 3.03 4.87l.84.43c1.58.79 4 .4 5.24-.85l2.36-2.36a12.04 12.04 0 0 1 7.51-3.11 13 13 0 1 1 .02 26 12 12 0 0 1-7.53-3.11l-2.36-2.36a4.93 4.93 0 0 0-5.24-.85l-.84.43a6.1 6.1 0 0 0-3.03 4.87V143h35.02a8.08 8.08 0 0 1 6.66 4.13l.43.84a6.91 6.91 0 0 1-1.22 7.56l-2.36 2.36A10.06 10.06 0 0 0 181 164a11 11 0 0 0 11 11v2a13 13 0 0 1-13-13 12 12 0 0 1 3.11-7.53l2.36-2.36a4.93 4.93 0 0 0 .85-5.24l-.43-.84a6.1 6.1 0 0 0-4.87-3.03H145v35.02a8.08 8.08 0 0 1-4.13 6.66l-.84.43a6.91 6.91 0 0 1-7.56-1.22l-2.36-2.36A10.06 10.06 0 0 0 124 181a11 11 0 0 0-11 11h-2a13 13 0 0 1 13-13c2.47 0 5.79 1.37 7.53 3.11l2.36 2.36a4.94 4.94 0 0 0 5.24.85l.84-.43a6.1 6.1 0 0 0 3.03-4.87V145h-35.02a8.08 8.08 0 0 1-6.66-4.13l-.43-.84a6.91 6.91 0 0 1 1.22-7.56l2.36-2.36A10.06 10.06 0 0 0 107 124a11 11 0 0 0-22 0c0 1.94 1.16 4.75 2.53 6.11l2.36 2.36a6.93 6.93 0 0 1 1.22 7.56l-.43.84a8.08 8.08 0 0 1-6.66 4.13H49v35.02a6.1 6.1 0 0 0 3.03 4.87l.84.43c1.58.79 4 .4 5.24-.85l2.36-2.36a12.04 12.04 0 0 1 7.51-3.11A13 13 0 0 1 81 192h-2a11 11 0 0 0-11-11c-1.94 0-4.75 1.16-6.11 2.53l-2.36 2.36a6.93 6.93 0 0 1-7.56 1.22l-.84-.43a8.08 8.08 0 0 1-4.13-6.66V145H11.98a6.1 6.1 0 0 0-4.87 3.03l-.43.84c-.79 1.58-.4 4 .85 5.24l2.36 2.36a12.04 12.04 0 0 1 3.11 7.51A13 13 0 0 1 0 177v-2a11 11 0 0 0 11-11c0-1.94-1.16-4.75-2.53-6.11l-2.36-2.36a6.93 6.93 0 0 1-1.22-7.56l.43-.84a8.08 8.08 0 0 1 6.66-4.13H47v-35.02a6.1 6.1 0 0 0-3.03-4.87l-.84-.43c-1.59-.8-4-.4-5.24.85l-2.36 2.36A12 12 0 0 1 28 109a13 13 0 1 1 0-26c2.47 0 5.79 1.37 7.53 3.11l2.36 2.36a4.94 4.94 0 0 0 5.24.85l.84-.43A6.1 6.1 0 0 0 47 84.02V49H11.98a8.08 8.08 0 0 1-6.66-4.13l-.43-.84a6.91 6.91 0 0 1 1.22-7.56l2.36-2.36A10.06 10.06 0 0 0 11 28 11 11 0 0 0 0 17v-2a13 13 0 0 1 13 13c0 2.47-1.37 5.79-3.11 7.53l-2.36 2.36a4.94 4.94 0 0 0-.85 5.24l.43.84A6.1 6.1 0 0 0 11.98 47H47V11.98a8.08 8.08 0 0 1 4.13-6.66l.84-.43a6.91 6.91 0 0 1 7.56 1.22l2.36 2.36A10.06 10.06 0 0 0 68 11 11 11 0 0 0 79 0h2a13 13 0 0 1-13 13 12 12 0 0 1-7.53-3.11l-2.36-2.36a4.93 4.93 0 0 0-5.24-.85l-.84.43A6.1 6.1 0 0 0 49 11.98V47h35.02a8.08 8.08 0 0 1 6.66 4.13l.43.84a6.91 6.91 0 0 1-1.22 7.56l-2.36 2.36A10.06 10.06 0 0 0 85 68a11 11 0 0 0 22 0c0-1.94-1.16-4.75-2.53-6.11l-2.36-2.36a6.93 6.93 0 0 1-1.22-7.56l.43-.84a8.08 8.08 0 0 1 6.66-4.13H143V11.98a6.1 6.1 0 0 0-3.03-4.87l-.84-.43c-1.59-.8-4-.4-5.24.85l-2.36 2.36A12 12 0 0 1 124 13a13 13 0 0 1-13-13h2a11 11 0 0 0 11 11c1.94 0 4.75-1.16 6.11-2.53l2.36-2.36a6.93 6.93 0 0 1 7.56-1.22l.84.43a8.08 8.08 0 0 1 4.13 6.66V47h35.02a6.1 6.1 0 0 0 4.87-3.03l.43-.84c.8-1.59.4-4-.85-5.24l-2.36-2.36A12 12 0 0 1 179 28a13 13 0 0 1 13-13zM84.02 143a6.1 6.1 0 0 0 4.87-3.03l.43-.84c.8-1.59.4-4-.85-5.24l-2.36-2.36A12 12 0 0 1 83 124a13 13 0 1 1 26 0c0 2.47-1.37 5.79-3.11 7.53l-2.36 2.36a4.94 4.94 0 0 0-.85 5.24l.43.84a6.1 6.1 0 0 0 4.87 3.03H143v-35.02a8.08 8.08 0 0 1 4.13-6.66l.84-.43a6.91 6.91 0 0 1 7.56 1.22l2.36 2.36A10.06 10.06 0 0 0 164 107a11 11 0 0 0 0-22c-1.94 0-4.75 1.16-6.11 2.53l-2.36 2.36a6.93 6.93 0 0 1-7.56 1.22l-.84-.43a8.08 8.08 0 0 1-4.13-6.66V49h-35.02a6.1 6.1 0 0 0-4.87 3.03l-.43.84c-.79 1.58-.4 4 .85 5.24l2.36 2.36a12.04 12.04 0 0 1 3.11 7.51A13 13 0 1 1 83 68a12 12 0 0 1 3.11-7.53l2.36-2.36a4.93 4.93 0 0 0 .85-5.24l-.43-.84A6.1 6.1 0 0 0 84.02 49H49v35.02a8.08 8.08 0 0 1-4.13 6.66l-.84.43a6.91 6.91 0 0 1-7.56-1.22l-2.36-2.36A10.06 10.06 0 0 0 28 85a11 11 0 0 0 0 22c1.94 0 4.75-1.16 6.11-2.53l2.36-2.36a6.93 6.93 0 0 1 7.56-1.22l.84.43a8.08 8.08 0 0 1 4.13 6.66V143h35.02z'%3E%3C/path%3E%3C/svg%3E");
+  color:white;
+  min-height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: ease-out .5s;
+  z-index:99;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 6em;
+}
+
+#landing .slogan {
+  text-align: center;
+  opacity: .7;
+  padding: 0 1em;
+  margin-bottom:4em;
+  font-style: italic;
+}
+#landing nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 2em .5em;
+    display: flex;
+    justify-content: space-around;
+}
+nav a {
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
+nav a:hover {
+    box-shadow:0 2px;
+}
+a#nuevoProb {
+    background: var(--verde);
+    padding: 1.2em 1.7em;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    text-transform: uppercase;
+    text-shadow: 0 2px 2px #0000000f;
+    transition: ease .3s;
+}
+a#nuevoProb:hover {
+      background: #89cf63;
+      box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+body.navfixed {
+  padding-top: 3em;
+}
+.navfixed #landing {
+  position: fixed;
+      min-height: 0;
+      width: 100%;
+      top: 0;
+      left: 0;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 0 1em;
+          background:var(--azul);
+}
+.navfixed h1 {
+  font-size: 1.3em;
+  font-weight: bold;
+  transition:.5s;
+}
+.navfixed #landing nav {
+  position:static;
+  width:auto;
+  transition:.5s;
+  padding:1em 0 1em 1em;
+}
+.navfixed #landing nav a {
+  margin-left: 1.5em
+}
+.etapa1-cont, .etapa2-cont {
+  transform:translateY(100vh) scale(.8);
+  opacity:0;
+  overflow: hidden;
+  height:0;
+  transition: height 0s, transform ease-out .5s, opacity ease-out .5s;
+}
+.etapa1 .etapa1-cont, .etapa2 .etapa2-cont {
+  display:block;
+  height:auto;
+  transform: translateY(0) scale(1);
+  opacity:1;
+}
+
+  #simplex_tabs,#pie{
+    max-width: 80em;
+   }
+
+   #tab_simplex{
+   }
+   #tab_simplex .fila {
+     display:flex;
+     flex-wrap: wrap;
+     align-content:stretch;
+   }
+   #tab_simplex .fila > div {
+     flex-grow: 1;
+   }
+.caja {
+  background: white;
+  padding: 2.5em 3em;
+  margin:0 1.5em 4em 1.5em;
+  border-radius: 10px;
+    box-shadow: 0 0 2rem rgba(0,0,0,.1)
+}
+h2 {
+  font-size: 2em;
+  margin-bottom:1em;
+  color: var(--oscuro);
+}
+   #jsx_funcion_objetivo,#jsx_restricciones{
+   }
+   #jsx_funcion_objetivo{
+   }
+   #jsx_fo_numvar {
+     display:flex;
+   }
+   #jsx_fo_numvar_s {
+     flex-grow: 1;
+     background-color: hsla(197, 33%, 92%, 1);
+   }
+   #jsx_restricciones{
+   }
+   #jsx_problema,#jsx_solucion{
+   }
+   #jsx_ecuaciones {
+     margin-left:1em;
+   }
+   #jsx_funcion_objetivo div.titulo,#jsx_restricciones div.titulo,#jsx_problema div.titulo,#jsx_solucion div.titulo{
+    padding: 0.5em 1em;
+   }
+   #jsx_funcion_objetivo div.contenido,#jsx_restricciones div.contenido,#jsx_problema div.contenido{
+
+    margin-top: 0.5em;
+   }
+   #jsx_fo_numvar_s{
+    margin-top: 0.7em;
+   }
+   #jsx_fo_fo_root{
+    display: none;
+   }
+   #jsx_fo_fo_cont div,#jsx_res_fo_cont div{
+    margin-top: 0.2em;
+    display: inline;
+   }
+
+   input[type=text], input[type=number]{
+    width: 5em;
+    height: 2.5em;
+    background: #fcfcfc;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+   }
+   input[type=text]:hover, input[type=number]:hover, input[type=text]:focus, input[type=number]:focus {
+     border-color:#b4b4b4;
+     background:#ffffff;
+   }
+   input:focus {
+     outline:0;
+   }
+
+   #jsx_res_fo_nombre input{
+    width: 7.1em;
+    text-align: left;
+   }
+   #jsx_res_fo_signo_opt{
+    display: inline;
+   }
+   #jsx_res_fo_signo{
+    margin-top: 1em;
+   }
+   #jsx_res_fo_boton{
+   }
+   #jsx_res_fo_nombre{
+    margin-top: 1em;
+   }
+   #jsx_res {
+     display:flex;
+     flex-wrap: wrap;
+   }
+   #jsx_res_nueva{
+   }
+   #jsx_res_cont{
+    margin-left: 1em;
+   }
+   #jsx_res_cont div{
+    padding: 0.5em;
+    padding-left: 1em;
+   }
+
+   #feedback{
+    font-size: 1em;
+   }
+   #jsx_res_act .ui-selecting{
+    background: #ddd;
+   }
+   #jsx_res_act .ui-selected{
+    background: #eee;
+    color: #000;
+   }
+   #jsx_res_act{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+   }
+   #jsx_res_act li{
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1em;
+    width: 18.5em;
+    height: 1.2em;
+   }
+   #jsx_res td{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+   }
+   #jsx_pro_botonestd{
+    border-right: 1px solid gray;
+    padding-right: 1.2em;
+    margin-right: 1em;
+   }
+   #jsx_pro_botones button{
+    display: block;
+    width: 15em;
+    margin-bottom: 0.2em;
+   }
+   #jsx_problema table tr td{
+    vertical-align: top;
+   }
+   #jsx_pro_p1 table tr td, #jsx_pro_p2 table tr td{
+    text-align: center;
+   }
+   #jsx_pro_botones2{
+    border-left: 1px solid gray;
+    padding-left: 1.2em;
+    margin-left: 1em;
+   }
+   #jsx_pro_p1,#jsx_pro_p2{
+
+   }
+   .jsx_matriz_pivote{
+    color: blue;
+    font-weight: bold;
+   }
+   #lienzo{
+    border: 1px solid gray;
+    margin-left: 1.6em;
+    margin-top: 1.6em;
+    background-color: white;
+   }
+   #configuracion,#configuracion2,#configuracion3,#configuracion4{
+    width: 338px;
+    border: 1px solid gray;
+    margin-top: 1.6em;
+    clear: right;
+    margin-left: 1.6em;
+    background-color: white;
+   }
+   #configuracion div,#configuracion2 div,#configuracion3 div,#configuracion4 div{
+    margin: 10px;
+   }
+   #configuracion div input[type="text"],#configuracion2 div input[type="text"]{
+    width: 50px;
+    text-align: center;
+   }
+   #configuracion4 div input[type="text"]{
+    width: 25px;
+    text-align: center;
+   }
+   div.configuracionTitulo{
+    font-weight: bold;
+    cursor: pointer;
+   }
+   div.configuracionTitulo + div{
+    border-top: 1px solid gray;
+   }
+   #jsx_grafica_tabla td{
+    vertical-align: top;
+   }
+   #jsx_grafica_tabla{
+    border-collapse: collapse;
+   }
+   input.jsx_xrest{
+    border: 0;
+    background-color: #3dabe3;
+    cursor: pointer;
+    margin-right: 1em;
+    color: white;
+    padding: 0.1em;
+    margin-top: -0.45em;
+    margin-left: -0.8em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    height: 2.2em;
+    font-weight: bold;
+   }
+   input.jsx_xrest:hover{
+    color: black;
+   }
+   div.jsx_matriz_sol{
+    margin-left: 1.5em;
+   }
+   div#tab_teoria table{
+    width: 96%;
+    text-align: center;
+    margin-bottom: 3em;
+   }
+   div#tab_teoria  img{
+    border: 0;
+    height: 6em;
+    margin-top: 3em;
+   }
+   div#tab_teoria a{
+    text-decoration: none;
+   }
+   div#tab_teoria a:hover{
+    color: red;
+   }
+   div#tab_acercade p{
+    font-size: 1.3em;
+   }
+
+/* MEDIA QUERIES */
+   @media (max-width: 750px) {
+     h1 {
+       font-size: 3em;
+     }
+   }

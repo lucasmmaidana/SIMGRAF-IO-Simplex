@@ -43,19 +43,18 @@
      return null;
     }
    }
-
+   
    jsx_funcionObjetivo.prototype.toString=function(){
     return this.toStringHTML();
    }
-
+   
    jsx_funcionObjetivo.prototype.toHTML=function(){
     return this.toStringHTML("html");
    }
-
+   
    jsx_funcionObjetivo.prototype.toStringHTML=function(tipo){
     var res=(this.tipo.toLowerCase()=="max"?"Max":"Min")+" ";
     var primero=true;
-    res+=("Z=");
     for(var i=0;i<this.funcion.length;i++){
      if(this.funcion[i]!=0){
       res+=(this.funcion[i]>=0?(primero?"":"+"):"");
@@ -66,25 +65,25 @@
     }
     return res;
    }
-
+   
    jsx_funcionObjetivo.prototype.numVariables=function(){
     return this.funcion.length;
    }
-
+   
    jsx_funcionObjetivo.prototype.getTipo=function(){
     return this.tipo;
    }
-
+   
    jsx_funcionObjetivo.prototype.getFuncion=function(){
     return this.funcion;
    }
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
   function jsx_restriccion(){
    if(arguments.length<3){
     alert("N\xfamero de par\xe1metros incorrecto al crear un objeto de tipo restricci\xf3n.");
@@ -133,7 +132,7 @@
     this.limite=new Racional(arguments[arguments.length-1]);
    }
   }
-
+  
   jsx_restriccion.prototype.toString=function(){
    var res=this.funcion[0]+"x1";
    for(var i=1;i<this.funcion.length;i++){
@@ -143,7 +142,7 @@
    res+=this.limite;
    return res;
   }
-
+  
   jsx_restriccion.prototype.toHTML=function(){
    var primero=true;
    var res="";
@@ -159,25 +158,25 @@
    res+=this.limite;
    return res;
   }
-
+  
   jsx_restriccion.prototype.getSigno=function(){
    return this.signo;
   }
-
+  
   jsx_restriccion.prototype.getLimite=function(){
    return this.limite;
   }
-
+  
   jsx_restriccion.prototype.getFuncion=function(){
    return this.funcion;
   }
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
   function jsx_problema(){
    this.funcionObjetivo=null;
    this.restricciones=new Array();
@@ -186,11 +185,11 @@
    this.noartificiales=0;
    this.usamosM=false;
   }
-
+  
   jsx_problema.prototype.procesar=function(){
    this.variablesHolgura();
   }
-
+  
   jsx_problema.prototype.variablesHolgura=function(){
    for(var i=0;i<this.restricciones.length;i++){
     this.holgura[i]=this.restricciones[i].getSigno()=="<="?1:this.restricciones[i].getSigno()==">="?-1:0;
@@ -215,7 +214,7 @@
    }
    this.restricciones=n_res;
   }
-
+  
   jsx_problema.prototype.dosfases=function(){
    var almenosuna=false;
    this.usamosM=false;
@@ -259,7 +258,7 @@
    this.noartificiales=0;
    return problema2fases;
   }
-
+  
   jsx_problema.prototype.mgrande=function(){
    var m;
    this.usamosM=true;
@@ -315,7 +314,7 @@
    this.noartificiales=0;
    return problema2fases;
   }
-
+  
   jsx_problema.prototype.setFuncionObjetivo=function(){
    if(arguments.length!=1){
     alert("La funci\xf3n setFuncionObjetivo de la clase problemas s\xf3lo recibe un par\xe1metro.");
@@ -328,11 +327,11 @@
     alert("Error al asignar la funci\xf3n objetivo de un problema.");
    }
   }
-
+  
   jsx_problema.prototype.clearRestricciones=function(){
    this.restricciones=new Array();
   }
-
+  
   jsx_problema.prototype.addRestriccion=function(){
    if(arguments.length!=1){
     alert("La funci\xf3n addRestriccion de la clase problemas recibe un s\xf3lo par\xe1metro.");
@@ -345,7 +344,7 @@
     alert("Error al insertar la restricci\xf3n de un problema.");
    }
   }
-
+  
   jsx_problema.prototype.numVariables=function(){
    if(this.funcionObjetivo==null){
     return 0;
@@ -354,23 +353,23 @@
     return this.funcionObjetivo.numVariables();
    }
   }
-
+  
   jsx_problema.prototype.numRestricciones=function(){
    return this.restricciones.length;
   }
-
+  
   jsx_problema.prototype.getFuncionObjetivo=function(){
    return this.funcionObjetivo;
   }
-
+  
   jsx_problema.prototype.getTipo=function(){
    return this.funcionObjetivo.getTipo();
   }
-
+  
   jsx_problema.prototype.getRestricciones=function(){
    return this.restricciones;
   }
-
+  
   jsx_problema.prototype.getRestriccion=function(){
    if(arguments.length!=1||isNaN(parseInt(arguments[0]))){
     alert("Error el metodo getRestriccion de un problema recibe un s\xf3lo par\xe1metro num\xe9rico.");
@@ -382,7 +381,7 @@
    }
    return this.restricciones[parseInt(arguments[0])];
   }
-
+  
   jsx_problema.prototype.toString=function(){
    var res="";
    res+=this.getFuncionObjetivo().toString();
@@ -391,7 +390,7 @@
    }
    return res;
   }
-
+  
   jsx_problema.prototype.toHTML=function(){
    var res="<table>";
    res+="<tr><td>"+this.getFuncionObjetivo().toHTML().split(" ")[0]+"</td>";
@@ -412,7 +411,7 @@
    res=replaceAll(res,"1100148163.6666667","M");
    return res;
   }
-
+  
   jsx_problema.prototype.clone=function(){
    var nuevoproblema=new jsx_problema();
    var nuevafuncionobjetivo=new jsx_funcionObjetivo(this.funcionObjetivo.getTipo(),this.funcionObjetivo.getFuncion());
@@ -433,19 +432,19 @@
    nuevoproblema.usamosM=this.usamosM;
    return nuevoproblema;
   }
-
+  
   function replaceAll(text,busca,reemplaza){
    while(text.toString().indexOf(busca)!=-1)
     text=text.toString().replace(busca,reemplaza);
    return text;
   }
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
    function jsx_matriz(){
     if(arguments.length!=1&&arguments.length!=2){
      alert("N\xfamero de par\xe1metros incorrecto al crear un objeto de tipo matriz.");
@@ -491,7 +490,7 @@
      this.calcularCostesReducidos();
     }
    }
-
+   
    jsx_matriz.prototype.calcularCostesReducidos=function(){
     for(var i=0;i<this.variables+1;i++){
      var suma=new Racional();
@@ -505,7 +504,7 @@
      this.calcularCostesReducidosM();
     }
    }
-
+   
    jsx_matriz.prototype.calcularCostesReducidosM=function(){
     var mpos="1100148163.6666667";
     var mneg="-1100148163.6666667";
@@ -559,7 +558,7 @@
      this.v_costes_reducidosM[i]=res;
     }
    }
-
+   
    jsx_matriz.prototype.quienEntra=function(){
     var entra=null;
     var max=0;
@@ -571,7 +570,7 @@
     }
     return entra;
    }
-
+   
    jsx_matriz.prototype.quienEntraX=function(){
     var letra;
     var numero;
@@ -585,7 +584,7 @@
     }
     return letra+"<sub>"+numero+"</sub>";
    }
-
+   
    jsx_matriz.prototype.quienSale=function(){
     var sale=null;
     var entra=this.quienEntra();
@@ -600,7 +599,7 @@
     }
     return sale;
    }
-
+   
    jsx_matriz.prototype.quienSaleX=function(){
     var letra;
     var numero;
@@ -619,7 +618,7 @@
     }
     return letra+"<sub>"+numero+"</sub>";
    }
-
+   
    jsx_matriz.prototype.avanzar=function(){
     var entra=this.quienEntra();
     var sale=this.quienSale();
@@ -643,7 +642,7 @@
     this.calcularCostesReducidos();
     return true;
    }
-
+   
    jsx_matriz.prototype.toString=function(){
     var entra=this.quienEntra();
     var sale=this.quienSale();
@@ -697,7 +696,7 @@
       }
      }
     }
-    res+="</tr>";
+    res+="</tr>";    
     res+="</table>";
     res+="<div class=\"jsx_matriz_sol\"><b>Soluci&oacute;n:</b> ";
     for(var i=0;i<this.matriz[0].length-2;i++){
@@ -720,7 +719,7 @@
     res+="</div>";
     return res;
    }
-
+   
    jsx_matriz.prototype.finPrimeraFase=function(){
     //0 todo bien
     //1 artificial en la base con coste igual que 0
@@ -747,7 +746,7 @@
     }
     return 2;
    }
-
+   
    jsx_matriz.prototype.getSegundaFase=function(o_fo){
     var pr=new jsx_problema();
     var nfo=new jsx_funcionObjetivo(o_fo.getTipo(),o_fo.getFuncion());
@@ -765,7 +764,7 @@
     var ma02=new jsx_matriz(pr,this.v_solucion);
     return ma02;
    }
-
+   
    jsx_matriz.prototype.esMultiple=function(){
     var numVarBasicas=this.restricciones;
     var numCeros=0;
@@ -790,7 +789,7 @@
     }
     return false;
    }
-
+   
    jsx_matriz.prototype.finMgrande=function(){
     //todo mirar finPrimeraFase
     return false;

@@ -1,20 +1,19 @@
-  
+
   /* TODO
-   !!! cuando se modifiquen las variables hay que modificar las restriciones ya introducidas �
+   !!! cuando se modifiquen las variables hay que modificar las restriciones ya introducidas �
   */
-  
-  
+
    $(function(){
     $("#theme").themeswitcher();
-    $("#simplex_tabs").tabs();
     $("#jsx_fo_tipo_max").button({icons:{primary:'ui-icon-circle-arrow-n'}});
     $("#jsx_fo_tipo_min").button({icons:{primary:'ui-icon-circle-arrow-s'}});
     $("#jsx_fo_tipo").buttonset().change(function(){jsx_actualizar();});
+
     $("#jsx_fo_numvar_s").slider({
      range: "min",
      value: 2,
      min: 1,
-     max: 10,
+     max: 20,
      slide: function(event,ui){
       $("#jsx_fo_numvar_n").val(ui.value);
       jsx_cambiar_numvar(ui.value);
@@ -22,10 +21,19 @@
     });
     $("#metodoartificial").buttonset().change(function(){jsx_actualizarProblema();});
     $("#jsx_fo_numvar_n").val($("#jsx_fo_numvar_s").slider("value"));
-    jsx_cambiar_numvar($("#jsx_fo_numvar_s").slider("value"));
+    jsx_cambiar_numvar(2);
     $("#jsx_res_fo_signo_opt").buttonset();
     $("#jsx_res_fo_boton").button({icons:{primary:'ui-icon-circle-plus'}});
     $("#jsx_res_fo_boton").click(function(){jsx_nuevarestriccion();});
+
+    $("#nuevoProb").click(function(){
+      $("body").addClass("etapa1").addClass("navfixed");
+      $("#nuevoProb, .slogan").hide();
+    });
+    $("#continuar").click(function(){
+      $("body").removeClass("etapa1").addClass("etapa2");
+    });
+
     $("#jsx_res_act").selectable();
     $($("#jsx_pro_botones").children()[0])
      .button({icons:{primary:'ui-icon-disk'}})
@@ -34,7 +42,7 @@
      .button({icons:{primary:'ui-icon-wrench'}})
      .click(function(){jsx_resolver();});
     $("#jsx_solucion_pasos").accordion({collapsible:false});
-    
+
     //
     //Lienzo
     //Margen
@@ -56,11 +64,19 @@
     var l=document.getElementById("lienzo");
     l.addEventListener('mousemove',faux1,false);
    });
-   
+
    var jsx_pr;
    var jsx_arrayRestricciones=new Array();
    var jsx_arrayRestriccionesActivas=new Array();
-   
+
+   function actualizarVariables(val) {
+     document.getElementById("variables-t").value = val;
+     document.getElementById("variables").value = val;
+     $("#jsx_fo_numvar_n").val(val);
+     jsx_cambiar_numvar(val);
+   };
+
+
    function jsx_nuevoProblema(){
     //$("#jsx_fo_tipo_min").removeAttr("checked");
     //$("#jsx_fo_tipo_max").attr("checked","checked");
@@ -68,10 +84,13 @@
     jsx_pr=new jsx_problema();
     jsx_arrayRestricciones=new Array();
     jsx_arrayRestriccionesActivas=new Array();
+    $("input[type=number], textarea").val("");
+    $("body").addClass("etapa1").addClass("navfixed").removeClass("etapa2");
+    $("#jsx_solucion_pasos").html("Aquí aparecerá la solución");
     $("#jsx_res_act").html("");
     jsx_actualizar();
    }
-   
+
    function jsx_resolver(){
     var antiguo=jsx_pr.clone();
     antiguo.procesar();
@@ -108,12 +127,12 @@
       }
      }
      else{
-      
+
      }
     }
     cont.accordion({collapsible:false});
    }
-   
+
    function jsx_resolver_matriz(ma,it,es,fa){
     var ma01=ma;
     var cont=$("#jsx_solucion_pasos");
@@ -175,7 +194,7 @@
      cont.append(contenido);
     }while(ma01.avanzar());
    }
-   
+
    function jsx_actualizar(){
     var maxmin=$("#jsx_fo_tipo_max").attr("checked")?"max":"min";
     var foDatos=new Array();
@@ -186,7 +205,7 @@
      foDatos[foDatos.length]=dato==""?0:signo+""+dato;
     }
     var fo01=new jsx_funcionObjetivo(maxmin,foDatos);
-    
+
     jsx_pr=new jsx_problema();
     jsx_pr.setFuncionObjetivo(fo01);
     for(var i=0;i<jsx_arrayRestricciones.length;i++){
@@ -194,10 +213,10 @@
       jsx_pr.addRestriccion(jsx_arrayRestricciones[i]);
      }
     }
-    
+
     jsx_actualizarProblema();
    }
-   
+
    function jsx_actualizarProblema(){
     var antiguo=jsx_pr.clone();
     antiguo.procesar();
@@ -228,7 +247,7 @@
      cont2.html(problemaArt.toHTML());
     }
    }
-   
+
    function jsx_nuevarestriccion(){
     var cadena="";
     var equis=new Array();
@@ -243,7 +262,8 @@
      if(parseFloat(valor)!=0){
       distintocero=true;
       cadena+=signo+""+valor+"X<sub>"+(i+1)+"</sub>";
-     }
+     };
+     res[1].value='';
     }
     if(!distintocero){
      return;
@@ -258,9 +278,9 @@
     if(cadena[0]=="+"){
      cadena=cadena.substring(1);
     }
-    
+
     //TODO ahora habria que limpiar los parametros de la ultima restriccion tsk
-    
+
     var el=$("<li></li>").addClass("ui-widget-content");
     el.html("<input type=\"button\" value=\"X\" class=\"jsx_xrest ui-corner-left\" onclick=\"jsx_eliminarrestriccion('"+jsx_arrayRestricciones.length+"');\" />");
     if(nombre!=""){
@@ -270,14 +290,15 @@
      el.html(el.html()+cadena);
     }
     $("#jsx_res_act").append(el);
-    
-    
+
+
     var re01=new jsx_restriccion(equis,desigualdad,limite);
     jsx_arrayRestricciones[jsx_arrayRestricciones.length]=re01;
     jsx_arrayRestriccionesActivas[jsx_arrayRestriccionesActivas.length]=true;
+    $("#jsx_res_fo_limite").val('');
     jsx_actualizar();
    }
-   
+
    function jsx_eliminarrestriccion(el){
     jsx_arrayRestriccionesActivas[el]=false;
     jsx_actualizar();
@@ -300,14 +321,14 @@
      $("#jsx_res_act").append(res[i]);
     }
    }
-   
+
    function jsx_cambiar_numvar(numvar){
     var fo=$("#jsx_fo_fo_cont");
     var res=$("#jsx_res_fo_cont");
     if(fo.children().size()<numvar){
      for(var i=fo.children().size();i<numvar;i++){
-      fo.append(jsx_fores_line('fo',i));
-      res.append(jsx_fores_line('res',i));
+      fo.append(jsx_fores_line('fo',i).fadeIn(500));
+      res.append(jsx_fores_line('res',i).fadeIn(500));
      }
     }
     else{
@@ -316,13 +337,13 @@
      fo.html("");
      res.html("");
      for(var i=0;i<numvar;i++){
-      fo.append($(focopia.children()[i]).clone(true));
-      res.append($(rescopia.children()[i]).clone(true));
+      fo.hide().append($(focopia.children()[i]).clone(true)).fadeIn(500);
+      res.hide().append($(rescopia.children()[i]).clone(true)).fadeIn(500);
      }
     }
     jsx_actualizar();
    }
-   
+
    function jsx_fores_line(fores,i){
     var cont=$("#jsx_fo_fo_root").clone(true);
     cont.id="jsx_"+fores+"_fo_"+i;
@@ -348,7 +369,7 @@
     }
     return cont;
    }
-   
+
    function jsx_ejemplo(){
     var ej=$("#jsx_pro_ejemplos").attr("value");
     if(ej=="ej0"){
