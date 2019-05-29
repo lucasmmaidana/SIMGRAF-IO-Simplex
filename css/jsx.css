@@ -112,9 +112,8 @@ body.navfixed {
 .etapa1-cont, .etapa2-cont {
   transform:translateY(100vh) scale(.8);
   opacity:0;
-  overflow: hidden;
-  height:0;
-  transition: height 0s, transform ease-out .5s, opacity ease-out .5s;
+  display:none;
+  transition: transform ease-out .5s .1s, opacity ease-out .5s .1s;
 }
 .etapa1 .etapa1-cont, .etapa2 .etapa2-cont {
   display:block;
