@@ -40,7 +40,7 @@
      .click(function(){jsx_nuevoProblema();});
     $($("#jsx_pro_botones").children()[1])
      .button({icons:{primary:'ui-icon-wrench'}})
-     .click(function(){jsx_resolver();});
+     .click(function(){jsx_resolver();$('body').scrollTo('#s');});
     $("#jsx_solucion_pasos").accordion({collapsible:false});
 
     //
