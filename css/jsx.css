@@ -152,7 +152,7 @@ input:invalid {
     transition: ease-out .3s;
 }
 
-#jsx_fo_tipo label .ui-button-text:hover {
+#jsx_fo_tipo label .ui-button-text:hover, #jsx_pro_ejemplos:hover {
 box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
@@ -263,7 +263,6 @@ sub {
      flex-grow: 1;
    }
 .caja {
-  background: white;
   padding: 1em 0 2.5em;
       border-bottom: 1px solid #f3f3f3;
   margin:0 1.5em 1em 1.5em;
@@ -348,6 +347,17 @@ h2 {
     padding-left: 1em;
    }
 
+#jsx_pro_ejemplos {
+  width: 100%;
+  max-width: 90vw;
+  height: 3em;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+ padding: 0 1em;
+ box-shadow: 0 3px 8px rgba(50,50,93,.05);
+  transition:.3s;
+  cursor:pointer;
+}
 
 
    #feedback{

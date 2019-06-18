@@ -103,7 +103,20 @@ Minimizar</label>
        <a id="continuar" class="boton-l">Continuar</a>
      </div>
 
-     <div class="etapa2-cont">
+     <div id="jsx_pro_ejemplos_cont" class="caja">
+
+        <select id="jsx_pro_ejemplos" onclick="jsx_ejemplo();">
+             <option value="null">Seleccione un ejemplo</option>
+             <option value="ej0">Ejemplo 0</option> <!-- sin artificiales -->
+             <option value="ej1">Ejemplo 1</option> <!-- sin artificiales -->
+             <option value="ej2">Ejemplo 2</option> <!-- sin artificiales -->
+             <option value="ej3">Ejemplo 3</option> <!-- 1/3 artificiales -->
+             <option value="ej4">Ejemplo 4</option> <!-- 2/3 artificiales -->
+             <option value="ej5">Ejemplo 5</option> <!-- 1/2 artificiales infactible -->
+             <option value="ej6">Ejemplo 6</option> <!-- 3/3 artificiales ilimitado -->
+        </select>
+      </div>
+
        <div class="fila">
          <div id="jsx_problema" class="caja">
            <h2 class="titulo">Ecuaciones</h2>
@@ -126,18 +139,7 @@ Minimizar</label>
          </div>
        </div>
 
-       <select id="jsx_pro_ejemplos" onclick="jsx_ejemplo();">
-            <option value="null">Seleccione un ejemplo</option>
-            <option value="ej0">Ejemplo 0</option> <!-- sin artificiales -->
-            <option value="ej1">Ejemplo 1</option> <!-- sin artificiales -->
-            <option value="ej2">Ejemplo 2</option> <!-- sin artificiales -->
-            <option value="ej3">Ejemplo 3</option> <!-- 1/3 artificiales -->
-            <option value="ej4">Ejemplo 4</option> <!-- 2/3 artificiales -->
-            <option value="ej5">Ejemplo 5</option> <!-- 1/2 artificiales infactible -->
-            <option value="ej6">Ejemplo 6</option> <!-- 3/3 artificiales ilimitado -->
-           </select>
-
-       <div id="jsx_pro_botones">
+       <div id="jsx_pro_botones" class="caja">
             <button>Nuevo problema</button>
             <button>Resolver problema</button>
            </div>
