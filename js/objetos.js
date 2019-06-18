@@ -644,10 +644,19 @@
     return true;
    }
 
+//FILA COSTES
+
    jsx_matriz.prototype.toString=function(){
     var entra=this.quienEntra();
     var sale=this.quienSale();
     var res="<table class=\"jsx_matriz\">";
+    res+="<tr class=\"jsx_matriz_equis\"><td>&nbsp;</td><td>&nbsp;</td>";
+    for(var i=0;i<this.variables;i++){
+     if(i<this.numvariablesconh||this.v_costes[i]!=0){
+      res+="<td>X<sub>"+(i+1)+"</sub></td>";
+     }
+    }
+    res+="<td>&nbsp;</td></tr>";
     res+="<tr class=\"jsx_matriz_1\"><td>&nbsp;</td><td>&nbsp;</td>";
     for(var i=0;i<this.variables;i++){
      if(i<this.numvariablesconh||this.v_costes[i]!=0){
@@ -686,7 +695,7 @@
      res+="</tr>";
     }
     res=replaceAll(res,"3300444491/3","M");
-    res+="<tr class=\"jsx_matriz_n\"><td>&nbsp;</td><td>&nbsp;</td>";
+    res+="<tr class=\"jsx_matriz_n\"><td>&nbsp;</td><td>Z =</td>";
     for(var i=0;i<this.variables+1;i++){
      if(i<this.numvariablesconh||this.v_costes[i]!=0||i==this.variables){
       if(this.usamosM){

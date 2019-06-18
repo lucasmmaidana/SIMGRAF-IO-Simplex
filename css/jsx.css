@@ -240,7 +240,7 @@ sub {
     align-self: flex-end;
 }
 
-#jsx_fo_fo_cont > div,#jsx_res_fo_cont div, #jsx_res_fo_signo {
+#jsx_fo_fo_cont > div,#jsx_res_fo_cont > div, #jsx_res_fo_signo {
  display: inline-flex;
  align-items: center;
  margin-right: .5em;
