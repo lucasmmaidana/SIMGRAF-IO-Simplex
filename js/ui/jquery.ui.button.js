@@ -287,12 +287,7 @@ $.widget( "ui.button", {
 		if ( icons.primary || icons.secondary ) {
 			buttonElement.addClass( "ui-button-text-icon" +
 				( multipleIcons ? "s" : ( icons.primary ? "-primary" : "-secondary" ) ) );
-			if ( icons.primary ) {
-				buttonElement.prepend( "<span class='ui-button-icon-primary ui-icon " + icons.primary + "'></span>" );
-			}
-			if ( icons.secondary ) {
-				buttonElement.append( "<span class='ui-button-icon-secondary ui-icon " + icons.secondary + "'></span>" );
-			}
+
 			if ( !this.options.text ) {
 				buttonElement
 					.addClass( multipleIcons ? "ui-button-icons-only" : "ui-button-icon-only" )

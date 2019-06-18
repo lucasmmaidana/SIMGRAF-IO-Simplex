@@ -66,6 +66,7 @@ nav a {
 nav a:hover {
     box-shadow:0 2px;
 }
+
 a#nuevoProb {
     background: var(--verde);
     padding: 1.2em 1.7em;
@@ -82,7 +83,7 @@ a#nuevoProb:hover {
 }
 
 body.navfixed {
-  padding-top: 3em;
+  padding-top: 4em;
 }
 .navfixed #landing {
   position: fixed;
@@ -122,8 +123,133 @@ body.navfixed {
   opacity:1;
 }
 
+input:invalid {
+  border-color: var(--naranja)!important;
+}
+
+#jsx_fo_tipo {
+    margin-bottom: 1em;
+    display: flex;
+}
+
+#jsx_fo_tipo .ui-button-text svg {
+    padding-right: .3em;
+}
+
+.ui-button-text svg {
+    fill: #4c4a5f;
+}
+
+#jsx_fo_tipo label .ui-button-text {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    padding: .6em 1em;
+    margin-right: .5EM;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #f3f3f3;
+    transition: ease-out .3s;
+}
+
+#jsx_fo_tipo label .ui-button-text:hover {
+box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+/*CHECKBOXES*/
+.ui-state-active .ui-button-text {
+  background:var(--azul);
+  color:white;
+  opacity:1!important;
+  border-color:transparent!important;
+}
+.ui-state-active .ui-button-text svg {
+  fill:white
+}
+
+#jsx_fo_numvar .fila label {
+    padding-right: .5em;
+}
+#jsx_fo_numvar {
+    background: #f3f3f3;
+    padding: 1em 1.5em;
+    display: flex;
+    flex-flow: column;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+/* Range input */
+[type='range'], [type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  max-width: 20em;
+}
+[type='range']::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  border: none;
+  margin:1.5em 0 1em;
+  padding: 0 .5em;
+  height: 0.4em;
+  border-radius:5px;
+  background: var(--gris);
+  box-shadow:1px 1px rgba(255, 255, 255, 0.2), -1px -1px rgba(0,0,0,0.1);
+}
+[type='range']::-webkit-slider-thumb {
+  margin-top: -0.600em;
+  box-sizing: border-box;
+  border: none;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #619eda;
+  transition: .2s;
+  cursor: pointer;
+}
+[type='range']:hover::-webkit-slider-thumb {
+  background: #3e78b2;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#jsx_fo_fo_root .ui-buttonset .ui-button-text, #jsx_res_fo_signo_opt .ui-button-text {
+    height: 2em;
+    width: 2em;
+    display: flex;
+    align-items: center;
+    border-radius: 100%;
+    justify-content: center;
+    cursor:pointer;
+    transition:.3s;
+    opacity:.5;
+}
+#jsx_fo_fo_root .ui-buttonset .ui-button-text:hover, #jsx_res_fo_signo_opt .ui-button-text:hover {
+opacity:1;
+}
+#jsx_fo_fo_cont .ui-buttonset, #jsx_res_fo_cont .ui-buttonset , #jsx_res_fo_signo_opt{
+    display: inline-flex;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%/100%;
+    margin-right: .5em;
+}
+#jsx_res_fo_signo_opt {
+border-radius: 33%/100%;
+}
+#jsx_fo_fo_root {
+  display:inline-flex;
+}
+sub {
+    align-self: flex-end;
+}
+
+#jsx_fo_fo_cont > div,#jsx_res_fo_cont div, #jsx_res_fo_signo {
+ display: inline-flex;
+ align-items: center;
+ margin-right: .5em;
+     margin-bottom: .7em;
+}
+
   #simplex_tabs,#pie{
-    max-width: 80em;
+    max-width: 50em;
+    margin: 0 auto;
    }
 
    #tab_simplex{
@@ -131,17 +257,16 @@ body.navfixed {
    #tab_simplex .fila {
      display:flex;
      flex-wrap: wrap;
-     align-content:stretch;
+     align-items: center;
    }
    #tab_simplex .fila > div {
      flex-grow: 1;
    }
 .caja {
   background: white;
-  padding: 2.5em 3em;
-  margin:0 1.5em 4em 1.5em;
-  border-radius: 10px;
-    box-shadow: 0 0 2rem rgba(0,0,0,.1)
+  padding: 1em 0 2.5em;
+      border-bottom: 1px solid #f3f3f3;
+  margin:0 1.5em 1em 1.5em;
 }
 h2 {
   font-size: 2em;
@@ -153,7 +278,6 @@ h2 {
    #jsx_funcion_objetivo{
    }
    #jsx_fo_numvar {
-     display:flex;
    }
    #jsx_fo_numvar_s {
      flex-grow: 1;
@@ -179,10 +303,6 @@ h2 {
    #jsx_fo_fo_root{
     display: none;
    }
-   #jsx_fo_fo_cont div,#jsx_res_fo_cont div{
-    margin-top: 0.2em;
-    display: inline;
-   }
 
    input[type=text], input[type=number]{
     width: 5em;
@@ -191,6 +311,7 @@ h2 {
     text-align: center;
     border-radius: 5px;
     border: 1px solid #dbdbdb;
+    margin-right:.5em;
    }
    input[type=text]:hover, input[type=number]:hover, input[type=text]:focus, input[type=number]:focus {
      border-color:#b4b4b4;
@@ -204,9 +325,7 @@ h2 {
     width: 7.1em;
     text-align: left;
    }
-   #jsx_res_fo_signo_opt{
-    display: inline;
-   }
+
    #jsx_res_fo_signo{
     margin-top: 1em;
    }
@@ -228,6 +347,8 @@ h2 {
     padding: 0.5em;
     padding-left: 1em;
    }
+
+
 
    #feedback{
     font-size: 1em;

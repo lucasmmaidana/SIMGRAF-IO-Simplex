@@ -26,7 +26,7 @@
   <link type="text/css" href="css/jsx.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
  </head>
- <body>
+ <body class="etapa1 navfixed">
    <div id="landing">
      <h1>SIMGRAF-IO</h1>
      <span class="slogan">Resuelva problemas de Programación Lineal con el Método Simplex</span>
@@ -43,35 +43,39 @@
    <div id="tab_simplex">
 
      <div class="etapa1-cont">
-       <div class="help">
+       <!--div class="help">
          <p>Para iniciar, ingrese la cantidad de variables y seleccione si el tipo de problema es maximización o minimización.</p>
          <p>Luego complete la función objetivo.</p>
-       </div>
+       </div-->
        <div id="jsx_funcion_objetivo" class="caja">
           <h2 class="titulo">Funci&oacute;n objetivo</h2>
           <div class="contenido ui-corner-all">
-            <div class="fila">
               <div id="jsx_fo_numvar">
-               <label for="variables">Cantidad de variables:</label>
-               <input id="variables" value="2" type="range" min="2" max="20" step="1" oninput="actualizarVariables(this.value)">
-               <input value="2" min="2" max="20" step="1" type="number" id="variables-t" onchange="actualizarVariables(this.value)">
+                <div class="fila">
+                   <label for="variables">Cantidad de variables:</label>
+                   <input value="2" min="2" max="20" step="1" type="number" id="variables-t" onchange="actualizarVariables(this.value)">
+                </div>
+                   <input id="variables" value="2" type="range" min="2" max="20" step="1" oninput="actualizarVariables(this.value)">
               </div>
               <div id="jsx_fo_tipo">
                <input type="radio" id="jsx_fo_tipo_max" name="jsx_fo_tipo" checked="checked" />
-               <label for="jsx_fo_tipo_max">Maximizar</label>
+               <label for="jsx_fo_tipo_max"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z"/></svg>
+Maximizar</label>
                <input type="radio" id="jsx_fo_tipo_min" name="jsx_fo_tipo" />
-               <label for="jsx_fo_tipo_min">Minimizar</label>
-              </div>
+               <label for="jsx_fo_tipo_min"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+Minimizar</label>
               </div>
            <div id="jsx_fo_fo">
-            <div id="jsx_fo_fo_root"><div><input type="radio" checked="checked" /><label>+</label><input type="radio" /><label>-</label></div><input type="number" /> X</div>
+            <div id="jsx_fo_fo_root"><div><input type="radio" checked="checked" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4z"/></svg>
+</label><input type="radio" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2h10z"/></svg>
+</label></div><input type="number" min="0"/> X</div>
             <div id="jsx_fo_fo_cont"></div>
            </div>
           </div>
          </div>
-       <div class="help">
+       <!--div class="help">
          <p>Ahora debe ingresar las restricciones del problema en forma de inecuación.</p>
-       </div>
+       </div-->
        <div id="jsx_restricciones" class="caja">
           <h2 class="titulo">Restricciones</h2>
           <div class="contenido ui-corner-all">
