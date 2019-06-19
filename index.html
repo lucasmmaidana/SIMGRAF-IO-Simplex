@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
+
+<head>
   <meta charset="utf-8">
   <title>SIMGRAF-IO</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1, user-scalable=no" />
@@ -25,136 +26,148 @@
   <link type="text/css" href="css/cupertino/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
   <link type="text/css" href="css/jsx.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
- </head>
- <body class="etapa2 navfixed">
-   <div id="landing">
-     <h1>SIMGRAF-IO</h1>
-     <span class="slogan">Resuelva problemas de Programación Lineal con el Método Simplex</span>
-     <a id="nuevoProb">Ingresar problema</a>
-     <nav>
-       <a href="../teoria">Soporte teórico</a>
-       <a href="#">Resolver un ejemplo</a>
-       <a href="../acerca-de">Acerca de</a>
-     </nav>
-   </div>
+</head>
+
+<body class="">
+  <div id="landing">
+    <h1>SIMGRAF-IO</h1>
+    <span class="slogan">Resuelva problemas de Programación Lineal con el Método Simplex</span>
+    <a id="nuevoProb" class="boton">Ingresar problema</a>
+    <nav>
+      <a href="../teoria">Soporte teórico</a>
+      <a href="#">Resolver un ejemplo</a>
+      <a href="../acerca-de">Acerca de</a>
+    </nav>
+  </div>
 
   <div id="simplex_tabs">
 
-   <div id="tab_simplex">
+    <div id="tab_simplex">
 
-     <div class="etapa1-cont">
-       <!--div class="help">
+      <div class="etapa1-cont">
+        <!--div class="help">
          <p>Para iniciar, ingrese la cantidad de variables y seleccione si el tipo de problema es maximización o minimización.</p>
          <p>Luego complete la función objetivo.</p>
        </div-->
-       <div id="jsx_funcion_objetivo" class="caja">
+        <div id="jsx_funcion_objetivo" class="caja">
           <h2 class="titulo">Funci&oacute;n objetivo</h2>
           <div class="contenido ui-corner-all">
-              <div id="jsx_fo_numvar">
-                <div class="fila">
-                   <label for="variables">Cantidad de variables:</label>
-                   <input value="2" min="2" max="20" step="1" type="number" id="variables-t" onchange="actualizarVariables(this.value)">
-                </div>
-                   <input id="variables" value="2" type="range" min="2" max="20" step="1" oninput="actualizarVariables(this.value)">
+            <div id="jsx_fo_numvar" class="gris-bg">
+              <div class="fila">
+                <label for="variables">Cantidad de variables:</label>
+                <input value="2" min="2" max="20" step="1" type="number" id="variables-t" onchange="actualizarVariables(this.value)">
               </div>
-              <div id="jsx_fo_tipo">
-               <input type="radio" id="jsx_fo_tipo_max" name="jsx_fo_tipo" checked="checked" />
-               <label for="jsx_fo_tipo_max"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z"/></svg>
-Maximizar</label>
-               <input type="radio" id="jsx_fo_tipo_min" name="jsx_fo_tipo" />
-               <label for="jsx_fo_tipo_min"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-Minimizar</label>
+              <input id="variables" value="2" type="range" min="2" max="20" step="1" oninput="actualizarVariables(this.value)">
+            </div>
+            <div id="jsx_fo_tipo">
+              <input type="radio" id="jsx_fo_tipo_max" name="jsx_fo_tipo" checked="checked" />
+              <label for="jsx_fo_tipo_max"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path class="heroicon-ui" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z" /></svg>
+                Maximizar</label>
+              <input type="radio" id="jsx_fo_tipo_min" name="jsx_fo_tipo" />
+              <label for="jsx_fo_tipo_min"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z" /></svg>
+                Minimizar</label>
+            </div>
+            <div id="jsx_fo_fo">
+              <div id="jsx_fo_fo_root">
+                <div><input type="radio" checked="checked" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4z" /></svg>
+                  </label><input type="radio" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2h10z" /></svg>
+                  </label></div><input type="number" min="0" /> X
               </div>
-           <div id="jsx_fo_fo">
-            <div id="jsx_fo_fo_root"><div><input type="radio" checked="checked" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4z"/></svg>
-</label><input type="radio" /><label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 11a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2h10z"/></svg>
-</label></div><input type="number" min="0"/> X</div>
-            <div id="jsx_fo_fo_cont"></div>
-           </div>
+              <div id="jsx_fo_fo_cont"></div>
+            </div>
           </div>
-         </div>
-       <!--div class="help">
+        </div>
+        <!--div class="help">
          <p>Ahora debe ingresar las restricciones del problema en forma de inecuación.</p>
        </div-->
-       <div id="jsx_restricciones" class="caja">
+        <div id="jsx_restricciones" class="caja">
           <h2 class="titulo">Restricciones</h2>
           <div class="contenido ui-corner-all">
-           <div id="jsx_res">
+            <div id="jsx_res">
               <div id="jsx_res_nueva">
-               <div id="jsx_res_fo_cont"></div>
-               <div id="jsx_res_fo_signo">
-                <div id="jsx_res_fo_signo_opt">
-                 <input type="radio" checked="checked" id="jsx_res_fo_signo_opt_lt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_lt">&le;</label><input type="radio" id="jsx_res_fo_signo_opt_eq" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_eq">=</label><input type="radio" id="jsx_res_fo_signo_opt_gt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_gt">&ge;</label>
+                <div id="jsx_res_fo_cont"></div>
+                <div id="jsx_res_fo_signo">
+                  <div id="jsx_res_fo_signo_opt">
+                    <input type="radio" checked="checked" id="jsx_res_fo_signo_opt_lt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_lt">&le;</label><input type="radio" id="jsx_res_fo_signo_opt_eq"
+                      name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_eq">=</label><input type="radio" id="jsx_res_fo_signo_opt_gt" name="jsx_res_fo_signo_opt" /><label for="jsx_res_fo_signo_opt_gt">&ge;</label>
+                  </div>
+                  <input type="number" id="jsx_res_fo_limite" />
                 </div>
-                <input type="number" id="jsx_res_fo_limite" />
-               </div>
-               <div id="jsx_res_fo_nombre">
-                <button id="jsx_res_fo_boton">A&ntilde;adir</button>
-                <input style="visibility:hidden" type="text" id="jsx_res_fo_nom" />
-               </div>
+                <div id="jsx_res_fo_nombre">
+                  <button id="jsx_res_fo_boton">A&ntilde;adir</button>
+                  <input style="visibility:hidden" type="text" id="jsx_res_fo_nom" />
+                </div>
               </div>
-              <div id="jsx_res_cont">
-               <!--h2 class="titulo">Restricciones</h2-->
-               <ol id="jsx_res_act"></ol>
-              </div>
-          </div>
-          </div>
-         </div>
-       <a id="continuar" class="boton-l">Continuar</a>
-     </div>
-
-     <div id="jsx_pro_ejemplos_cont" class="caja">
-
-        <select id="jsx_pro_ejemplos" onclick="jsx_ejemplo();">
-             <option value="null">Seleccione un ejemplo</option>
-             <option value="ej0">Ejemplo 0</option> <!-- sin artificiales -->
-             <option value="ej1">Ejemplo 1</option> <!-- sin artificiales -->
-             <option value="ej2">Ejemplo 2</option> <!-- sin artificiales -->
-             <option value="ej3">Ejemplo 3</option> <!-- 1/3 artificiales -->
-             <option value="ej4">Ejemplo 4</option> <!-- 2/3 artificiales -->
-             <option value="ej5">Ejemplo 5</option> <!-- 1/2 artificiales infactible -->
-             <option value="ej6">Ejemplo 6</option> <!-- 3/3 artificiales ilimitado -->
-        </select>
-      </div>
-
-       <div class="fila">
-         <div id="jsx_problema" class="caja">
-           <h2 class="titulo">Ecuaciones</h2>
-           <div class="contenido ui-corner-all">
-                <div id="jsx_pro_p1"></div>
-           </div>
-          </div>
-
-         <div id="jsx_segundo2" class="caja">
-            <h2 class="titulo">Método artificial</h3>
-            <div id="jsx_segundo1">
-              <div id="metodoartificial">
-               <input type="radio" id="dosfases" name="metodoartificial" checked="checked" /><label for="dosfases">2 fases</label>
-               <input type="radio" id="mgrande" name="metodoartificial" /><label for="mgrande">M grande</label>
+              <div id="jsx_res_cont" class="gris-bg">
+                <!--h2 class="titulo">Restricciones</h2-->
+                <ol id="jsx_res_act"></ol>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="caja algn-der">
+          <a id="continuar" class="boton">Continuar</a>
+        </div>
+      </div>
+
+      <div class="etapa2-cont">
+        <div id="jsx_pro_ejemplos_cont" class="caja">
+
+          <select id="jsx_pro_ejemplos" onclick="jsx_ejemplo();">
+            <option value="null">Seleccione un ejemplo</option>
+            <option value="ej0">Ejemplo 0</option> <!-- sin artificiales -->
+            <option value="ej1">Ejemplo 1</option> <!-- sin artificiales -->
+            <option value="ej2">Ejemplo 2</option> <!-- sin artificiales -->
+            <option value="ej3">Ejemplo 3</option> <!-- 1/3 artificiales -->
+            <option value="ej4">Ejemplo 4</option> <!-- 2/3 artificiales -->
+            <option value="ej5">Ejemplo 5</option> <!-- 1/2 artificiales infactible -->
+            <option value="ej6">Ejemplo 6</option> <!-- 3/3 artificiales ilimitado -->
+          </select>
+        </div>
+
+        <div class="fila">
+          <div id="jsx_problema" class="caja">
+            <h2 class="titulo">Ecuaciones</h2>
             <div class="contenido ui-corner-all">
-              <div id="jsx_pro_p2"></div>
+              <div id="jsx_pro_p1"></div>
             </div>
-         </div>
-       </div>
+          </div>
 
-       <div id="jsx_pro_botones" class="caja">
-            <button>Nuevo problema</button>
-            <button>Resolver problema</button>
-           </div>
+          <div id="jsx_segundo2" class="caja">
+            <h2 class="titulo">Método artificial</h3>
+              <div id="jsx_segundo1">
+                <div id="metodoartificial">
+                  <input type="radio" id="dosfases" name="metodoartificial" checked="checked" /><label for="dosfases">2 fases</label>
+                  <input type="radio" id="mgrande" name="metodoartificial" /><label for="mgrande">M grande</label>
+                </div>
+              </div>
+              <div class="contenido ui-corner-all">
+                <div id="jsx_pro_p2"></div>
+              </div>
+          </div>
+        </div>
 
-       <div id="jsx_solucion" class="caja">
-       <h2 class="titulo">Soluci&oacute;n</h2>
-       <div class="contenido" id="jsx_solucion_pasos">
-         Aquí aparecerá la solución.
-       </div>
+        <div id="jsx_pro_botones" class="caja">
+          <button class="boton">Nuevo problema</button>
+          <button class="boton">Resolver problema</button>
+        </div>
+
+        <div id="jsx_solucion" class="caja">
+          <h2 class="titulo">Soluci&oacute;n</h2>
+          <div class="contenido" id="jsx_solucion_pasos">
+            Aquí aparecerá la solución.
+          </div>
+        </div>
       </div>
-     </div>
+    </div>
 
-   </div>
+  </div>
 
-   <!--
+  <!--
    <div id="tab_grafica">
     <canvas class="ui-corner-all" id="lienzo" width="700" height="700" onmouseout="g00.limpiarDatos();" onclick="g00.eventoClick(event);">
      Su navegador no soporta Canvas.
@@ -343,6 +356,7 @@ Minimizar</label>
    -->
   </div>
   <footer id="pie">
- </footer>
- </body>
+  </footer>
+</body>
+
 </html>

@@ -282,14 +282,14 @@
     //TODO ahora habria que limpiar los parametros de la ultima restriccion tsk
 
     var el=$("<li></li>").addClass("ui-widget-content");
-    el.html("<input type=\"button\" value=\"X\" class=\"jsx_xrest ui-corner-left\" onclick=\"jsx_eliminarrestriccion('"+jsx_arrayRestricciones.length+"');\" />");
+    el.html("<input value=\"✖\" type=\"submit\" class=\"jsx_xrest ui-corner-left\" onclick=\"jsx_eliminarrestriccion('"+jsx_arrayRestricciones.length+"');\"/>");
     if(nombre!=""){
      el.html(el.html()+nombre);
     }
     else{
      el.html(el.html()+cadena);
     }
-    $("#jsx_res_act").append(el);
+    $("#jsx_res_act").append(el).children(':last').hide().fadeIn(500);
 
 
     var re01=new jsx_restriccion(equis,desigualdad,limite);
