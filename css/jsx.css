@@ -76,7 +76,7 @@ nav a {
   text-align: center;
 }
 
-nav a:hover {
+nav a:hover, nav a:focus {
   box-shadow: 0 2px;
 }
 
@@ -95,7 +95,7 @@ nav a:hover {
   opacity: .8;
 }
 
-.boton:hover, button:hover {
+.boton:hover, button:hover, .boton:focus, button:focus {
   box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
   opacity: 1;
 }
@@ -471,11 +471,11 @@ input:focus {
   position: relative;
 }
 
-#jsx_res_act li:hover {
+#jsx_res_act li:hover, #jsx_res_act li:focus {
   background: #eee
 }
 
-#jsx_res_act li:hover .jsx_xrest {
+#jsx_res_act li:hover .jsx_xrest, #jsx_res_act li:focus .jsx_xrest {
   opacity: 1;
 }
 
