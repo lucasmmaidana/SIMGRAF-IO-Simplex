@@ -55,9 +55,14 @@ h1 {
   font-style: italic;
 }
 
+#hamb,
+label[for='hamb'] {
+  display: none;
+}
+
 #landing nav {
   position: absolute;
-  bottom: 0;
+  bottom: 1em;
   width: 100%;
   left: 0;
   padding: 2em .5em;
@@ -684,5 +689,65 @@ div#tab_acercade p {
 @media (max-width: 750px) {
   h1 {
     font-size: 3em;
+  }
+
+  .navfixed h1 {
+    padding: .7em 0;
+  }
+
+  .navfixed #landing {
+    flex-direction: column;
+  }
+
+  .navfixed label[for='hamb'] {
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 3em;
+    transition: .5s;
+  }
+
+  label[for='hamb'] svg {
+    fill: white;
+  }
+
+  label[for='hamb'] svg.arriba {
+    display: none;
+  }
+
+  #hamb:checked~label[for='hamb'] .abajo {
+    display: none;
+  }
+
+  #hamb:checked~label[for='hamb'] {}
+
+  #hamb:checked~label[for='hamb'] .arriba {
+    display: block;
+  }
+
+  .navfixed #landing nav {
+    max-height: 0em;
+    overflow: hidden;
+    flex-flow: column;
+    transition: .8s;
+    padding: 0;
+  }
+
+  .navfixed #landing nav a {
+    display: block;
+    padding: .8em 0;
+    text-align: center;
+    margin: 0
+  }
+
+  .navfixed #hamb:checked~nav {
+    max-height: 20em;
+    padding-bottom: 1em;
+    /* exagerar sin exagerar */
   }
 }
