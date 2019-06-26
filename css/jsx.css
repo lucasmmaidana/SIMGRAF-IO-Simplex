@@ -730,19 +730,22 @@ div#tab_acercade p {
     display: block;
   }
 
+  #landing nav {
+    flex-flow: column;
+  }
+
   .navfixed #landing nav {
     max-height: 0em;
     overflow: hidden;
-    flex-flow: column;
     transition: .8s;
     padding: 0;
   }
 
-  .navfixed #landing nav a {
+  #landing nav a {
     display: block;
     padding: .8em 0;
     text-align: center;
-    margin: 0
+    margin: 0 !important;
   }
 
   .navfixed #hamb:checked~nav {
