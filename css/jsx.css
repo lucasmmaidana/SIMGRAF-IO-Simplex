@@ -167,7 +167,7 @@ input:invalid {
   border-color: var(--naranja) !important;
 }
 
-#jsx_fo_tipo {
+#jsx_fo_tipo, #metodoartificial {
   margin-bottom: 1em;
   display: flex;
 }
@@ -180,7 +180,7 @@ input:invalid {
   fill: #4c4a5f;
 }
 
-#jsx_fo_tipo label .ui-button-text {
+#jsx_fo_tipo label .ui-button-text, #metodoartificial label .ui-button-text {
   display: flex;
   vertical-align: middle;
   align-items: center;
@@ -192,7 +192,7 @@ input:invalid {
   transition: ease-out .3s;
 }
 
-#jsx_fo_tipo label .ui-button-text:hover, #jsx_pro_ejemplos:hover {
+#jsx_fo_tipo label .ui-button-text:hover, #jsx_pro_ejemplos:hover, #metodoartificial label .ui-button-text:hover {
   box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
 }
 
@@ -337,7 +337,7 @@ sub {
 
 h2 {
   font-size: 2em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5rem;
   color: var(--oscuro);
 }
 
@@ -571,6 +571,10 @@ td.jsx_matriz_pivote:before {
 
 #jsx_solucion_pasos>div {
   margin-bottom: 2em;
+}
+
+#jsx_solucion_pasos>div:last-child .jsx_matriz_sol {
+  background: #eaf6e4
 }
 
 div.jsx_matriz_sol {

@@ -665,7 +665,7 @@
        res += "</tr>";
      }
      res = replaceAll(res, "3300444491/3", "M");
-     res += "<tr class=\"jsx_matriz_n\"><td>&nbsp;</td><td>Z =</td>";
+     res += "<tr class=\"jsx_matriz_n\"><td>&nbsp;</td><td>&nbsp;</td>";
      for (var i = 0; i < this.variables + 1; i++) {
        if (i < this.numvariablesconh || this.v_costes[i] != 0 || i == this.variables) {
          if (this.usamosM) {
