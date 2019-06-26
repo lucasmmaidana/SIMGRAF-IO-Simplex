@@ -52,29 +52,14 @@ $(function() {
   });
 
   $("#jsx_res_act").selectable();
-  $($("#jsx_pro_botones").children()[0])
-    .button({
-      icons: {
-        primary: 'ui-icon-disk'
-      }
-    })
-    .click(function() {
-      jsx_nuevoProblema();
-    });
-  $($("#jsx_pro_botones").children()[1])
-    .button({
-      icons: {
-        primary: 'ui-icon-wrench'
-      }
-    })
-    .click(function() {
-      jsx_resolver();
-      $('html, body').animate({
-        scrollTop: $("#jsx_solucion").offset().top - 60
-      }, 700);
-    });
-  $("#jsx_solucion_pasos").accordion({
-    collapsible: false
+  $("#jsx_pro_nuevoprob").click(function() {
+    jsx_nuevoProblema();
+  });
+  $("#jsx_pro_resolprob").click(function() {
+    jsx_resolver();
+    $('html, body').animate({
+      scrollTop: $("#jsx_solucion").offset().top - 60
+    }, 700);
   });
 
   //

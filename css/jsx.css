@@ -504,9 +504,77 @@ input:focus {
 
 #jsx_pro_p1, #jsx_pro_p2 {}
 
+table.jsx_matriz td {
+  padding: 0.2em 0em;
+  width: 3em;
+  text-align: center;
+}
+
+tr.jsx_matriz_1 {
+  border-bottom: 0.1em solid #e1e1e1;
+}
+
+tr.jsx_matriz_1n {
+  background-color: #f1f1f1;
+  z-index: -2;
+}
+
+tr.jsx_matriz_n {
+  border-top: 0.1em solid #e1e1e1;
+}
+
+table.jsx_matriz {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.jsx_matriz tbody {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  display: block;
+}
+
+tr.jsx_matriz_equis {
+  color: #bcbcbc;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: .8em;
+}
+
 .jsx_matriz_pivote {
   color: blue;
   font-weight: bold;
+}
+
+td.jsx_matriz_pivote:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  background: var(--verde);
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.jsx_matriz_pivote {
+  color: white;
+  font-weight: bold;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#jsx_solucion_pasos>div {
+  margin-bottom: 1em;
+}
+
+div.jsx_matriz_sol {
+  border-radius: 10px;
+  padding: .6em 1em;
+  background: #fafafa;
 }
 
 #lienzo {
@@ -581,10 +649,6 @@ div.configuracionTitulo+div {
 }
 
 .jsx_xrest:hover {}
-
-div.jsx_matriz_sol {
-  margin-left: 1.5em;
-}
 
 div#tab_teoria table {
   width: 96%;
