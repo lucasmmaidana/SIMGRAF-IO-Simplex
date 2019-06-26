@@ -50,6 +50,10 @@ $(function() {
   $("#continuar").click(function() {
     $("body").removeClass("etapa1").addClass("etapa2");
   });
+  $("#resolEjemplo").click(function() {
+    $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
+    $("#nuevoProb, .slogan").hide();
+  });
 
   $("#jsx_res_act").selectable();
   $("#jsx_pro_nuevoprob").click(function() {
@@ -103,7 +107,7 @@ function jsx_nuevoProblema() {
   jsx_pr = new jsx_problema();
   jsx_arrayRestricciones = new Array();
   jsx_arrayRestriccionesActivas = new Array();
-  $("input[type=number], textarea").val("");
+  $("input[type=number]:not(#variables-t), textarea").val("");
   $("body").addClass("etapa1").addClass("navfixed").removeClass("etapa2");
   $("#jsx_solucion_pasos").html("Aquí aparecerá la solución");
   $("#jsx_res_act").html("");
@@ -245,11 +249,11 @@ function jsx_actualizarProblema() {
   }
   if (problemaArt === false) {
     problemaArt = antiguo.clone();
-    $("#jsx_segundo1").css("visibility", "hidden");
-    $("#jsx_segundo2").css("visibility", "hidden");
+    $("#jsx_segundo1").css("display", "none");
+    $("#jsx_segundo2").css("display", "none");
   } else {
-    $("#jsx_segundo1").css("visibility", "visible");
-    $("#jsx_segundo2").css("visibility", "visible");
+    $("#jsx_segundo1").css("display", "block");
+    $("#jsx_segundo2").css("display", "block");
   }
   var cont2 = $("#jsx_pro_p2");
   cont2.html("");

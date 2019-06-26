@@ -99,14 +99,14 @@ nav a:hover {
   text-align: right;
 }
 
-a#nuevoProb {
+a#nuevoProb, #jsx_pro_resolprob {
   background: var(--verde);
   color: white;
-  border: 0;
+  border-color: var(--verde);
   opacity: 1;
 }
 
-a#nuevoProb:hover {
+a#nuevoProb:hover, #jsx_pro_resolprob:hover {
   background: #89cf63;
 }
 
@@ -149,14 +149,14 @@ body.navfixed {
   margin-left: 1.5em
 }
 
-.etapa1-cont, .etapa2-cont {
+.etapa1-cont, .etapa2-cont, #jsx_pro_ejemplos_cont {
   transform: translateY(100vh) scale(.8);
   opacity: 0;
   display: none;
   transition: transform ease-out .5s .1s, opacity ease-out .5s .1s;
 }
 
-.etapa1 .etapa1-cont, .etapa2 .etapa2-cont {
+.etapa1 .etapa1-cont, .etapa2 .etapa2-cont, .ejemplo #jsx_pro_ejemplos_cont {
   display: block;
   height: auto;
   transform: translateY(0) scale(1);
@@ -331,6 +331,10 @@ sub {
   border-bottom: 1px solid #f3f3f3;
 }
 
+#jsx_problema {
+  border-bottom: 0;
+}
+
 h2 {
   font-size: 2em;
   margin-bottom: 1em;
@@ -483,9 +487,7 @@ input:focus {
 }
 
 #jsx_pro_botones button {
-  display: block;
-  width: 15em;
-  margin-bottom: 0.2em;
+  margin-right: 0.2em;
 }
 
 #jsx_problema table tr td {
@@ -568,7 +570,7 @@ td.jsx_matriz_pivote:before {
 }
 
 #jsx_solucion_pasos>div {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 div.jsx_matriz_sol {
