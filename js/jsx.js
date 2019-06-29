@@ -177,21 +177,21 @@ function jsx_resolver_matriz(ma, it, es, fa) {
       if (!tieneartificiales) {
         tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": no hay m&aacute;s iteraciones";
         if (ma01.quienEntra() != null && ma01.esMultiple() == false) {
-          finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La soluci&oacute;n es ilimitada, la variable " + ma01.quienEntraX() + " debe entrar a la base pero ninguna puede salir.";
+          finmsg = "<br />La soluci&oacute;n es ilimitada, la variable " + ma01.quienEntraX() + " debe entrar a la base pero ninguna puede salir.";
         }
         if (ma01.esMultiple() == true) {
-          finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La soluci&oacute;n es m&uacute;ltiple, nos encontramos en un punto &oacute;ptimo y hay variables no b&aacute;sicas con coste reducido igual a 0.";
+          finmsg = "<br />La soluci&oacute;n es m&uacute;ltiple, nos encontramos en un punto &oacute;ptimo y hay variables no b&aacute;sicas con coste reducido igual a 0.";
         }
       } else {
         if ($("#dosfases").attr("checked")) {
           tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": fin de la primera fase";
           var comotermino = ma01.finPrimeraFase();
           if (comotermino == 0) {
-            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se han expulsado todas las variables artificiales de la base.";
+            finmsg = "<br /Se han expulsado todas las variables artificiales de la base.";
           } else if (comotermino == 1) {
-            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las variables artificiales que no se han expulsado de la base valen 0, son linealmente dependientes.";
+            finmsg = "<br />Las variables artificiales que no se han expulsado de la base valen 0, son linealmente dependientes.";
           } else if (comotermino == 2) {
-            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una variable artificial en la base extrictamente mayor que 0, el problema es infactible.";
+            finmsg = "<br />Existe una variable artificial en la base extrictamente mayor que 0, el problema es infactible.";
           }
         } else {
           tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": no hay m&aacute;s iteraciones";

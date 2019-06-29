@@ -622,13 +622,13 @@
      var entra = this.quienEntra();
      var sale = this.quienSale();
      var res = "<table class=\"jsx_matriz\">";
-     res += "<tr class=\"jsx_matriz_equis\"><td>&nbsp;</td><td>&nbsp;</td>";
+     res += "<tr class=\"jsx_matriz_equis\"><td>X<sub>K</sub></td><td>C<sub>K</sub></td>";
      for (var i = 0; i < this.variables; i++) {
        if (i < this.numvariablesconh || this.v_costes[i] != 0) {
          res += "<td>X<sub>" + (i + 1) + "</sub></td>";
        }
      }
-     res += "<td>&nbsp;</td></tr>";
+     res += "<td>B</td></tr>";
      res += "<tr class=\"jsx_matriz_1\"><td>&nbsp;</td><td>&nbsp;</td>";
      for (var i = 0; i < this.variables; i++) {
        if (i < this.numvariablesconh || this.v_costes[i] != 0) {
@@ -678,14 +678,19 @@
      res += "</tr>";
      res += "</table>";
      res += "<div class=\"jsx_matriz_sol\"><b>Soluci&oacute;n:</b> ";
-     for (var i = 0; i < this.matriz[0].length - 2; i++) {
+     for (var i = 0; i < this.matriz[0].length - 1; i++) {
        valor = 0;
        for (var j = 0; j < this.v_solucion.length; j++) {
          if (this.v_solucion[j] == i) {
            valor = this.matriz[j][this.matriz[j].length - 1].toString();
          }
        }
-       res += "x<sub>" + (i + 1) + "</sub>=" + valor + " ";
+       res += "x<sub>" + (i + 1) + "</sub>=" + valor;
+       if (i < this.matriz[0].length - 2) {
+         res += ", ";
+       } else {
+         res += " ";
+       }
      }
      var resultado = 0;
      if (this.usamosM) {
@@ -695,6 +700,7 @@
      }
      res += "&nbsp;&nbsp;&nbsp;<b>Resultado:</b> " + resultado;
      res += "</div>";
+
      return res;
    }
 
