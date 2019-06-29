@@ -358,7 +358,7 @@ function jsx_cambiar_numvar(numvar) {
 
 function jsx_fores_line(fores, i) {
   var cont = $("#jsx_fo_fo_root").clone(true);
-  cont.id = "jsx_" + fores + "_fo_" + i;
+  cont.attr('id', 'jsx_' + fores + '_fo_' + i);
   cont.css("display", "block");
   cont.html(cont.html() + "<sub>" + (i + 1) + "</sub>");
   var b = $(cont.children()[0]);

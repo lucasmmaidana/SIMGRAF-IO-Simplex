@@ -213,6 +213,10 @@ input:invalid {
   fill: white
 }
 
+#jsx_fo_numvar .fila {
+  align-items: center
+}
+
 #jsx_fo_numvar .fila label {
   padding-right: .5em;
 }
@@ -269,7 +273,7 @@ input:invalid {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-#jsx_fo_fo_root .ui-buttonset .ui-button-text, #jsx_res_fo_signo_opt .ui-button-text {
+#jsx_fo_fo_cont .ui-buttonset .ui-button-text, #jsx_res_fo_signo_opt .ui-button-text, #jsx_res_fo_cont .ui-button-text {
   height: 2em;
   width: 2em;
   display: flex;
@@ -281,7 +285,7 @@ input:invalid {
   opacity: .5;
 }
 
-#jsx_fo_fo_root .ui-buttonset .ui-button-text:hover, #jsx_res_fo_signo_opt .ui-button-text:hover {
+#jsx_fo_fo_cont .ui-buttonset .ui-button-text:hover, #jsx_res_fo_signo_opt .ui-button-text:hover, #jsx_res_fo_cont .ui-button-text:hover {
   opacity: 1;
 }
 
@@ -752,5 +756,11 @@ div#tab_acercade p {
     max-height: 20em;
     padding-bottom: 1em;
     /* exagerar sin exagerar */
+  }
+
+  [type='range'] {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%
   }
 }
