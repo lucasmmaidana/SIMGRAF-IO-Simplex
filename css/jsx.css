@@ -155,7 +155,7 @@ body.navfixed {
 }
 
 .etapa1-cont, .etapa2-cont, #jsx_pro_ejemplos_cont {
-  transform: translateY(100vh) scale(.8);
+  transform: translateY(50vh);
   opacity: 0;
   display: none;
   transition: transform ease-out .5s .1s, opacity ease-out .5s .1s;
@@ -164,7 +164,7 @@ body.navfixed {
 .etapa1 .etapa1-cont, .etapa2 .etapa2-cont, .ejemplo #jsx_pro_ejemplos_cont {
   display: block;
   height: auto;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   opacity: 1;
 }
 
@@ -236,6 +236,10 @@ input:invalid {
   flex-flow: column;
   border-radius: 10px;
   margin-bottom: 1em;
+}
+
+.etapa2-cont .gris-bg {
+  padding: .9em 1em;
 }
 
 /* Range input */
@@ -315,6 +319,10 @@ sub {
   margin-bottom: .7em;
 }
 
+#jsx_pro_botones {
+  padding-top: 0
+}
+
 #simplex_tabs, #pie {
   max-width: 50em;
   margin: 0 auto;
@@ -340,12 +348,13 @@ sub {
   border-bottom: 1px solid #f3f3f3;
 }
 
-#jsx_problema {
+#jsx_problema, #jsx_segundo1, #jsx_segundo2 {
   border-bottom: 0;
 }
 
 h2 {
   font-size: 2em;
+  font-weight: 100;
   margin-bottom: 1.5rem;
   color: var(--oscuro);
 }

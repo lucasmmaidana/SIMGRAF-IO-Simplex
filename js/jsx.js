@@ -48,7 +48,11 @@ $(function() {
     $("#nuevoProb, .slogan").hide();
   });
   $("#continuar").click(function() {
-    $("body").removeClass("etapa1").addClass("etapa2");
+    if ($("#jsx_res_act").children().length == 0) {
+      alert("Debe ingresar al menos una restricción");
+    } else {
+      $("body").removeClass("etapa1").addClass("etapa2");
+    }
   });
   $("#resolEjemplo").click(function() {
     $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
