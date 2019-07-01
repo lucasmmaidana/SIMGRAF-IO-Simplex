@@ -58,6 +58,9 @@ $(function() {
     $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
     $("#nuevoProb, .slogan").hide();
   });
+  $("#modificar").click(function() {
+    $("body").addClass("etapa1").removeClass("etapa2");
+  });
 
   $("#jsx_res_act").selectable();
   $("#jsx_pro_nuevoprob").click(function() {

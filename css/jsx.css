@@ -240,6 +240,7 @@ input:invalid {
 
 .etapa2-cont .gris-bg {
   padding: .9em 1em;
+  position: relative;
 }
 
 /* Range input */
@@ -332,6 +333,29 @@ sub {
 
 #jsx_fo_numvar .fil {
   align-items: center;
+}
+
+#jsx_problema .titulo {
+  margin-bottom: .3em;
+}
+
+a#modificar {
+  display: flex;
+  align-items: center;
+  color: #7d7d7d;
+  opacity: .7;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+a#modificar svg {
+  fill: #686868;
+  margin-right: .3em;
+}
+
+a#modificar:hover {
+  opacity: 1;
 }
 
 #tab_simplex .fila {
