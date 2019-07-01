@@ -59,6 +59,7 @@ $(function() {
     $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
     $("#nuevoProb, .slogan").hide();
     $("#modificar").css("display", "none");
+    $("#hamb").checked = false;
   });
   $("#modificar").click(function() {
     $("body").addClass("etapa1").removeClass("etapa2");

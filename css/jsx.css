@@ -338,9 +338,7 @@ sub {
   align-items: center;
 }
 
-#jsx_problema .titulo {
-  margin-bottom: .3em;
-}
+#jsx_problema .titulo {}
 
 a#modificar {
   display: none;
