@@ -157,13 +157,16 @@ body.navfixed {
 .etapa1-cont, .etapa2-cont, #jsx_pro_ejemplos_cont {
   transform: translateY(50vh);
   opacity: 0;
-  display: none;
-  transition: transform ease-out .5s .1s, opacity ease-out .5s .1s;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: transform ease-out .5s, opacity ease-out .5s;
 }
 
 .etapa1 .etapa1-cont, .etapa2 .etapa2-cont, .ejemplo #jsx_pro_ejemplos_cont {
-  display: block;
   height: auto;
+  visibility: visible;
+  overflow: auto;
   transform: translateY(0);
   opacity: 1;
 }
@@ -340,7 +343,7 @@ sub {
 }
 
 a#modificar {
-  display: flex;
+  display: none;
   align-items: center;
   color: #7d7d7d;
   opacity: .7;

@@ -52,11 +52,13 @@ $(function() {
       alert("Debe ingresar al menos una restricción");
     } else {
       $("body").removeClass("etapa1").addClass("etapa2");
-    }
+    };
+    $("#modificar").css("display", "flex");
   });
   $("#resolEjemplo").click(function() {
     $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
     $("#nuevoProb, .slogan").hide();
+    $("#modificar").css("display", "none");
   });
   $("#modificar").click(function() {
     $("body").addClass("etapa1").removeClass("etapa2");
