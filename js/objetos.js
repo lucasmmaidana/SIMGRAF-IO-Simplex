@@ -622,6 +622,10 @@
      var entra = this.quienEntra();
      var sale = this.quienSale();
      var res = "<table class=\"jsx_matriz\">";
+     var ansens = [
+       [],
+       []
+     ];
      res += "<tr class=\"jsx_matriz_equis\"><td>X<sub>K</sub></td><td>C<sub>K</sub></td>";
      for (var i = 0; i < this.variables; i++) {
        if (i < this.numvariablesconh || this.v_costes[i] != 0) {
@@ -672,6 +676,7 @@
            res += "<td>" + this.v_costes_reducidosM[i].toString() + "</td>";
          } else {
            res += "<td>" + this.v_costes_reducidos[i].toString() + "</td>";
+           ansens[1][i] = this.v_costes_reducidos[i].toString();
          }
        }
      }
@@ -685,6 +690,7 @@
            valor = this.matriz[j][this.matriz[j].length - 1].toString();
          }
        }
+       ansens[0][i] = valor;
        res += "x<sub>" + (i + 1) + "</sub>=" + valor;
        if (i < this.matriz[0].length - 2) {
          res += ", ";
@@ -698,10 +704,11 @@
      } else {
        resultado = this.v_costes_reducidos[this.v_costes_reducidos.length - 1].toString();
      }
+     ansens[0][21] = resultado;
      res += "&nbsp;&nbsp;&nbsp;<b>Resultado:</b> " + resultado;
      res += "</div>";
 
-     return res;
+     return [res, ansens];
    }
 
    jsx_matriz.prototype.finPrimeraFase = function() {

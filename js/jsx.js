@@ -2,6 +2,8 @@
  !!! cuando se modifiquen las variables hay que modificar las restriciones ya introducidas �
 */
 
+var ansens = new Array(21);
+
 $(function() {
   $("#theme").themeswitcher();
   $("#jsx_fo_tipo_max").button({
@@ -171,6 +173,7 @@ function jsx_resolver() {
 
 function jsx_resolver_matriz(ma, it, es, fa) {
   var ma01 = ma;
+
   var cont = $("#jsx_solucion_pasos");
   var iteracion = it;
   var tieneartificiales = es;
@@ -185,44 +188,58 @@ function jsx_resolver_matriz(ma, it, es, fa) {
     if (ma01.quienEntra() != null && ma01.quienSale() != null) {
       var entra = ma01.quienEntraX();
       var sale = ma01.quienSaleX();
+      var conAnalisis = true;
       var tituloCad = "Iteraci&oacute;n " + ((iteracion++) + 1) + ": entra " + entra + " y sale " + sale;
     } else {
       var tituloCad = "";
       if (!tieneartificiales) {
         tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": no hay m&aacute;s iteraciones";
         if (ma01.quienEntra() != null && ma01.esMultiple() == false) {
-          finmsg = "<br />La soluci&oacute;n es ilimitada, la variable " + ma01.quienEntraX() + " debe entrar a la base pero ninguna puede salir.";
+          finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La soluci&oacute;n es ilimitada, la variable " + ma01.quienEntraX() + " debe entrar a la base pero ninguna puede salir.";
+          conAnalisis = false;
         }
         if (ma01.esMultiple() == true) {
-          finmsg = "<br />La soluci&oacute;n es m&uacute;ltiple, nos encontramos en un punto &oacute;ptimo y hay variables no b&aacute;sicas con coste reducido igual a 0.";
+          finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La soluci&oacute;n es m&uacute;ltiple, nos encontramos en un punto &oacute;ptimo y hay variables no b&aacute;sicas con coste reducido igual a 0.";
+          conAnalisis = false;
         }
       } else {
         if ($("#dosfases").attr("checked")) {
           tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": fin de la primera fase";
           var comotermino = ma01.finPrimeraFase();
           if (comotermino == 0) {
-            finmsg = "<br /Se han expulsado todas las variables artificiales de la base.";
+            conAnalisis = false;
+            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se han expulsado todas las variables artificiales de la base.";
           } else if (comotermino == 1) {
-            finmsg = "<br />Las variables artificiales que no se han expulsado de la base valen 0, son linealmente dependientes.";
+            conAnalisis = false;
+            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las variables artificiales que no se han expulsado de la base valen 0, son linealmente dependientes.";
           } else if (comotermino == 2) {
-            finmsg = "<br />Existe una variable artificial en la base extrictamente mayor que 0, el problema es infactible.";
+            conAnalisis = false;
+            finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una variable artificial en la base extrictamente mayor que 0, el problema es infactible.";
           }
         } else {
           tituloCad = "Iteraci&oacute;n " + (iteracion++) + ": no hay m&aacute;s iteraciones";
+
           if (ma01.finMgrande() == true) {
+            conAnalisis = false;
             finmsg = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las variables artificiales que no se han expulsado de la base valen 0, son linealmente dependientes.";
           }
         }
       }
     }
     var titulo = $("<h3></h3>");
-    var enlace = $("<span></span>").html(tituloCadOld);
+    var enlace = $("<a></a>").attr("href", "#").html(tituloCadOld);
     tituloCadOld = tituloCad;
     titulo.append(enlace);
-    var contenido = $("<div></div>").html(ma01.toString() + finmsg);
+    var simplex = ma01.toString();
+    var tabla = simplex[0];
+    var ansens = simplex[1];
+    var contenido = $("<div></div>").html(tabla + finmsg);
     cont.append(titulo);
     cont.append(contenido);
   } while (ma01.avanzar());
+  if (conAnalisis) {
+    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + ".</br>Valor marginal del producto 1: $" + ansens[1][2] + "</br>Valor marginal del producto 2: $" + ansens[1][3]);
+  }
 }
 
 function jsx_actualizar() {
