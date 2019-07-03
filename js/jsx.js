@@ -238,7 +238,7 @@ function jsx_resolver_matriz(ma, it, es, fa) {
     cont.append(contenido);
   } while (ma01.avanzar());
   if (conAnalisis) {
-    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + ".</br>Valor marginal del producto 1: $" + ansens[1][2] + "</br>Valor marginal del producto 2: $" + ansens[1][3]);
+    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + "</br>Valor marginal del producto 1: $" + ansens[1][2] + "</br>Valor marginal del producto 2: $" + ansens[1][3]);
   }
 }
 
