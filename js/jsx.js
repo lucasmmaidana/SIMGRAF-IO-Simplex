@@ -56,13 +56,17 @@ $(function() {
     $("#modificar").css("display", "flex");
   });
   $("#resolEjemplo").click(function() {
-    $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").addClass("etapa2");;
+    $("body").addClass("ejemplo").addClass("navfixed").removeClass("etapa1").removeClass("metGrafico").addClass("etapa2");;
     $("#nuevoProb, .slogan").hide();
     $("#modificar").css("display", "none");
     $("#hamb").checked = false;
   });
   $("#modificar").click(function() {
-    $("body").addClass("etapa1").removeClass("etapa2");
+    $("body").addClass("etapa1").removeClass("etapa2").removeClass("metGrafico");
+  });
+  $("#metGraf").click(function() {
+    $("body").addClass("metGrafico").addClass("navfixed").removeClass("etapa2").removeClass("etapa1");
+    $("#nuevoProb, .slogan").hide();
   });
 
   $("#jsx_res_act").selectable();

@@ -21,7 +21,7 @@
   <script type="text/javascript" src="js/ui/jquery.multipleselectbox.js"></script>
   <script type="text/javascript" src="js/racional.js"></script>
   <script type="text/javascript" src="js/objetos.js"></script>
-  <!--script type="text/javascript" src="js/grafica.js"></script-->
+  <script type="text/javascript" src="js/grafica.js"></script>
   <script type="text/javascript" src="js/jsx.js"></script>
   <script type="text/javascript" src="js/themeswitchertool.js"></script>
   <link type="text/css" href="css/themes/demos.css" rel="stylesheet" />
@@ -46,8 +46,8 @@
     </label>
     <nav>
       <a id="resolEjemplo" href="#">Resolver un ejemplo</a>
-      <!-- a href="../teoria">Soporte teórico</a>
-      <a href="../acerca-de">Acerca de</a -->
+      <a id="metGraf">Método gráfico</a>
+      <!--a href="../acerca-de">Acerca de</a -->
     </nav>
   </div>
 
@@ -188,193 +188,159 @@
 
   </div>
 
-  <!--
-   <div id="tab_grafica">
+
+  <div id="tab_grafica">
     <canvas class="ui-corner-all" id="lienzo" width="700" height="700" onmouseout="g00.limpiarDatos();" onclick="g00.eventoClick(event);">
-     Su navegador no soporta Canvas.
+      Su navegador no soporta Canvas.
     </canvas>
     <table id="jsx_grafica_tabla">
-     <tr>
-      <td>
-       <div id="configuracion4" class="ui-corner-all">
-        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Problema</div>
-        <div style="display: none;">
-         <div>
-          <select id="fo_obj">
-           <option selected="selected" value="max">MAX</option>
-           <option value="min">MIN</option>
-          </select>
-          <input id="fo_x" type="text"><label for="fo_x">X</label>
-          <select id="fo_op">
-           <option selected="selected" value="+">+</option>
-           <option value="-">-</option>
-          </select>
-          <input id="fo_y" type="text"><label for="fo_y">Y</label>
-          <input value="Fijar" onclick="nuevaFuncionObjetivo();" type="button">
-         </div>
-         <div>
-          <input id="nrest_x" type="text"><label for="nrest_x">X</label>
-          <select id="nrest_op">
-           <option selected="selected" value="+">+</option>
-           <option value="-">-</option>
-          </select>
-          <input id="nrest_y" type="text"><label for="nrest_y">Y</label>
-          <select id="nrest_signo">
-           <option selected="selected" value="&lt;=">&lt;=</option>
-           <option value="&gt;=">&gt;=</option>
-          </select>
-          <input id="nrest_limite" type="text">
-          <input checked="checked" id="nrest_mostrable" type="checkbox">
-          <input value="+" onclick="nuevaRestriccion();" type="button">
-         </div>
-         <div id="restricciones">
-         </div>
-         <div>
-          <label for="ejemplos">Ejemplos</label>
-          <select id="ejemplos" onchange="ejemplos(this.value);">
-           <option selected="selected">Ning&uacute;n ejemplo</option>
-           <option>Ejemplo 1</option>
-           <option>Ejemplo 2</option>
-           <option>Ejemplo 3</option>
-           <option>Ejemplo 4</option>
-          </select>
-         </div>
-        </div>
-       </div>
-      </td>
-      <td>
-       <div id="configuracion2" class="ui-corner-all">
-        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar lienzo</div>
-        <div style="display: none;">
-         <div>
-          <label for="ancho">Ancho del lienzo</label>
-          <input id="ancho" value="700" type="text">
-         </div>
-         <div>
-          <label for="alto">Alto del lienzo</label>
-          <input id="alto" value="700" type="text">
-         </div>
-         <div>
-          <input value="Aplicar cambios en la gr&aacute;fica y el lienzo" onclick="ejecutarConfiguracion2();" type="button">
-         </div>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td>
-       <div id="configuracion3" class="ui-corner-all">
-        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Manipular gr&aacute;fica</div>
-        <div style="display: none;">
-         <div>
-          <label for="aumentar">Aumentar</label>
-          <input id="aumentar" onclick="g00.setAumentar(this.checked?true:false);" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <input value="Deshacer aumento" onclick="g00.deshacerAumento();" type="button">
-         </div>
-         <div>
-          <label for="marcarrest">Marcar restricciones</label>
-          <input id="marcarrest" onclick="g00.setMarcarRest(this.checked?true:false);" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <label for="fijarenteros">Ajustar a enteros</label>
-          <input id="fijarenteros" onclick="g00.setFijarEnteros(this.checked?true:false);" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <label for="fijarcortes">Ajustar a intersecciones</label>
-          <input id="fijarcortes" onclick="g00.setFijarCortes(this.checked?true:false);" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <label for="usarracionales">Mostrar coordenadas como racionales</label>
-          <input id="usarracionales" onclick="g00.setUsarRacionales(this.checked?true:false);" type="checkbox">
-         </div>
-        </div>
-       </div>
-      </td>
-      <td>
-       <div id="configuracion" class="ui-corner-all">
-        <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar gr&aacute;fica</div>
-        <div style="display: none;">
-         <div>
-          <label for="x1">Eje X</label> de
-          <input id="x1" value="0" type="text"> a
-          <input id="x2" value="10" type="text">
-         </div>
-         <div>
-          <label for="y1">Eje Y</label> de
-          <input id="y1" value="0" type="text"> a
-          <input id="y2" value="10" type="text">
-         </div>
-         <div>
-          <label for="marcas">N&uacute;mero de marcas</label>
-          <input id="marcas" value="100" type="text">
-         </div>
-         <div>
-          <label for="avance">Numerar 1 de cada</label>
-          <input id="avance" value="10" type="text"> marcas
-         </div>
-         <div>
-          <label for="precisionx">Precisi&oacute;n del eje X</label>
-          <input id="precisionx" value="0" type="text"> decimales
-         </div>
-         <div>
-          <label for="precisiony">Precisi&oacute;n del eje Y</label>
-          <input id="precisiony" value="0" type="text"> decimales
-         </div>
-         <div>
-          <label for="horizontales">Lineas horizontales</label>
-          <input id="horizontales" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <label for="verticales">Lineas verticales</label>
-          <input id="verticales" checked="checked" type="checkbox">
-         </div>
-         <div>
-          <input value="Aplicar cambios en la gr&aacute;fica" onclick="ejecutarConfiguracion();" type="button">
-         </div>
-        </div>
-       </div>
-      </td>
-     </tr>
+      <tr>
+        <td>
+          <div id="configuracion4" class="ui-corner-all">
+            <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Problema</div>
+            <div>
+              <div>
+                <select id="fo_obj">
+                  <option selected="selected" value="max">MAX</option>
+                  <option value="min">MIN</option>
+                </select>
+                <input id="fo_x" type="text"><label for="fo_x">X</label>
+                <select id="fo_op">
+                  <option selected="selected" value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <input id="fo_y" type="text"><label for="fo_y">Y</label>
+                <input value="Fijar" onclick="nuevaFuncionObjetivo();" type="button">
+              </div>
+              <div>
+                <input id="nrest_x" type="text"><label for="nrest_x">X</label>
+                <select id="nrest_op">
+                  <option selected="selected" value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <input id="nrest_y" type="text"><label for="nrest_y">Y</label>
+                <select id="nrest_signo">
+                  <option selected="selected" value="&lt;=">&lt;=</option>
+                  <option value="&gt;=">&gt;=</option>
+                </select>
+                <input id="nrest_limite" type="text">
+                <input checked="checked" id="nrest_mostrable" type="checkbox">
+                <input value="+" onclick="nuevaRestriccion();" type="button">
+              </div>
+              <div id="restricciones">
+              </div>
+              <div>
+                <label for="ejemplos">Ejemplos</label>
+                <select id="ejemplos" onchange="ejemplos(this.value);">
+                  <option selected="selected">Ning&uacute;n ejemplo</option>
+                  <option>Ejemplo 1</option>
+                  <option>Ejemplo 2</option>
+                  <option>Ejemplo 3</option>
+                  <option>Ejemplo 4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div id="configuracion2" class="ui-corner-all">
+            <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar lienzo</div>
+            <div>
+              <div>
+                <label for="ancho">Ancho del lienzo</label>
+                <input id="ancho" value="700" type="text">
+              </div>
+              <div>
+                <label for="alto">Alto del lienzo</label>
+                <input id="alto" value="700" type="text">
+              </div>
+              <div>
+                <input value="Aplicar cambios en la gr&aacute;fica y el lienzo" onclick="ejecutarConfiguracion2();" type="button">
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="configuracion3" class="ui-corner-all">
+            <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Manipular gr&aacute;fica</div>
+            <div>
+              <div>
+                <label for="aumentar">Aumentar</label>
+                <input id="aumentar" onclick="g00.setAumentar(this.checked?true:false);" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <input value="Deshacer aumento" onclick="g00.deshacerAumento();" type="button">
+              </div>
+              <div>
+                <label for="marcarrest">Marcar restricciones</label>
+                <input id="marcarrest" onclick="g00.setMarcarRest(this.checked?true:false);" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <label for="fijarenteros">Ajustar a enteros</label>
+                <input id="fijarenteros" onclick="g00.setFijarEnteros(this.checked?true:false);" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <label for="fijarcortes">Ajustar a intersecciones</label>
+                <input id="fijarcortes" onclick="g00.setFijarCortes(this.checked?true:false);" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <label for="usarracionales">Mostrar coordenadas como racionales</label>
+                <input id="usarracionales" onclick="g00.setUsarRacionales(this.checked?true:false);" type="checkbox">
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div id="configuracion" class="ui-corner-all">
+            <div class="configuracionTitulo" onclick="mostrarOcultar(this);">Configurar gr&aacute;fica</div>
+            <div>
+              <div>
+                <label for="x1">Eje X</label> de
+                <input id="x1" value="0" type="text"> a
+                <input id="x2" value="10" type="text">
+              </div>
+              <div>
+                <label for="y1">Eje Y</label> de
+                <input id="y1" value="0" type="text"> a
+                <input id="y2" value="10" type="text">
+              </div>
+              <div>
+                <label for="marcas">N&uacute;mero de marcas</label>
+                <input id="marcas" value="100" type="text">
+              </div>
+              <div>
+                <label for="avance">Numerar 1 de cada</label>
+                <input id="avance" value="10" type="text"> marcas
+              </div>
+              <div>
+                <label for="precisionx">Precisi&oacute;n del eje X</label>
+                <input id="precisionx" value="0" type="text"> decimales
+              </div>
+              <div>
+                <label for="precisiony">Precisi&oacute;n del eje Y</label>
+                <input id="precisiony" value="0" type="text"> decimales
+              </div>
+              <div>
+                <label for="horizontales">Lineas horizontales</label>
+                <input id="horizontales" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <label for="verticales">Lineas verticales</label>
+                <input id="verticales" checked="checked" type="checkbox">
+              </div>
+              <div>
+                <input value="Aplicar cambios en la gr&aacute;fica" onclick="ejecutarConfiguracion();" type="button">
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
     </table>
-   </div>
-   <div id="tab_teoria">
-    <table>
-     <tr>
-      <td><a href="rsc/resumen.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
-      <td><a href="rsc/tema2.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
-     </tr>
-     <tr>
-      <td><a href="rsc/resumen.pdf">Resumen Simplex</a></td>
-      <td><a href="rsc/tema2.pdf">El modelo matem&aacute;tico</a></td>
-     </tr>
-     <tr>
-      <td><a href="rsc/tema3.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
-      <td><a href="rsc/tema4.pdf"><img src="img/pdf.gif" alt="pdf" /></a></td>
-     </tr>
-     <tr>
-      <td><a href="rsc/tema3.pdf">El algoritmo del Simplex</a></td>
-      <td><a href="rsc/tema4.pdf">La soluci&oacute;n inicial</a></td>
-     </tr>
-    </table>
-   </div>
-   <div id="tab_acercade">
-    <p>
-        Javascript SimpleX es un proyecto desarrollado para el departamento de Estad&iacute;stica e Investigaci&oacute;n Operativa de la Universidad de Sevilla con el objetivo de proporcionar una herramienta did&aacute;ctica orientada tanto a alumnos como a profesores, que en este caso, se centra en la resoluci&oacute;n de los problemas de programaci&oacute;n lineal haciendo uso del algoritmo del Simplex y represent&aacute;ndolos gr&aacute;ficamente.
-    </p>
-    <p>
-     Esta herramienta se distribuye bajo la licencia <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL v2</a>, tanto la licencia como el <a href="rsc/jsx.zip">c&oacute;digo fuente</a> est&aacute;n disponibles para su descarga.
-    </p>
-    <br />
-    <p>
-     <b>Ana Delgado Vela</b>: anadelgadovela(at)hotmail(dot)com
-    </p>
-    <p>
-     <b>Marina Cabello Mart&iacute;nez</b>: marinacabellomartinez(at)gmail(dot)com
-    </p>
-   </div>
-   -->
+  </div>
+
+
   </div>
   <footer id="pie">
   </footer>

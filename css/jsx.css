@@ -154,7 +154,7 @@ body.navfixed {
   margin-left: 1.5em
 }
 
-.etapa1-cont, .etapa2-cont, #jsx_pro_ejemplos_cont {
+.etapa1-cont, .etapa2-cont, #jsx_pro_ejemplos_cont, #tab_grafica {
   transform: translateY(50vh);
   opacity: 0;
   height: 0;
@@ -163,7 +163,7 @@ body.navfixed {
   transition: transform ease-out .5s, opacity ease-out .5s;
 }
 
-.etapa1 .etapa1-cont, .etapa2 .etapa2-cont, .ejemplo #jsx_pro_ejemplos_cont {
+.etapa1 .etapa1-cont, .etapa2 .etapa2-cont, .ejemplo #jsx_pro_ejemplos_cont, .metGrafico #tab_grafica {
   height: auto;
   visibility: visible;
   overflow: auto;
