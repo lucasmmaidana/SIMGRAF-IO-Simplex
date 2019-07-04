@@ -238,7 +238,36 @@ function jsx_resolver_matriz(ma, it, es, fa) {
     cont.append(contenido);
   } while (ma01.avanzar());
   if (conAnalisis) {
-    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + "</br>Valor marginal del producto 1: $" + ansens[1][2] + "</br>Valor marginal del producto 2: $" + ansens[1][3]);
+    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br></br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + "</br>El costo de oportunidad indica en cuánto disminuiría el funcional si fabricáramos una unidad más del producto.</br></br>Valor marginal del recurso 1: $" + ansens[1][2] + "</br>Valor marginal del recurso 2: $" + ansens[1][3] + "</br>Valor marginal del recurso 3: $" + ansens[1][4]);
+    cont.append("</br>");
+    if (ansens[1][5] != null) {
+      cont.append("</br>Valor marginal del recurso 4: $" + ansens[1][5] + "</br>El valor marginal indica en cuánto incrementaría el funcional si tuviésemos una unidad más del recurso disponible.");
+    }
+    if (ansens[0][2] == 0) {
+      cont.append("</br>El recurso 1 se utilizó por completo y es escaso.");
+    } else {
+      cont.append("</br>El recurso 1 es abundante.");
+    }
+    if (ansens[0][3] == 0) {
+      cont.append("</br>El recurso 2 se utilizó por completo y es escaso.");
+    } else {
+      cont.append("</br>El recurso 2 es abundante.");
+    }
+    if (ansens[0][4] != null) {
+      if (ansens[0][4] == 0) {
+        cont.append("</br>El recurso 3 se utilizó por completo y es escaso.");
+      } else {
+        cont.append("</br>El recurso 3 es abundante.");
+      }
+    }
+    if (ansens[0][5] != null) {
+      if (ansens[0][5] == 0) {
+        cont.append("</br>El recurso 4 se utilizó por completo y es escaso.");
+      } else {
+        cont.append("</br>El recurso 4 es abundante.");
+      }
+    }
+
   }
 }
 
@@ -482,15 +511,17 @@ function jsx_ejemplo() {
     jsx_pr.addRestriccion(re01);
     jsx_pr.addRestriccion(re02);
   } else if (ej == "ej6") {
-    var fo01 = new jsx_funcionObjetivo('min', -1, 2, -3);
-    var re01 = new jsx_restriccion(1, 1, 1, '=', 6);
-    var re02 = new jsx_restriccion(-1, 1, 2, '=', 4);
-    var re03 = new jsx_restriccion(0, 2, 3, '=', 10);
+    var fo01 = new jsx_funcionObjetivo('max', 5, 4);
+    var re01 = new jsx_restriccion(6, 4, '<=', 24);
+    var re02 = new jsx_restriccion(1, 2, '<=', 6);
+    var re03 = new jsx_restriccion(-1, 1, '<=', 1);
+    var re04 = new jsx_restriccion(0, 1, '<=', 2);
     jsx_pr = new jsx_problema();
     jsx_pr.setFuncionObjetivo(fo01);
     jsx_pr.addRestriccion(re01);
     jsx_pr.addRestriccion(re02);
     jsx_pr.addRestriccion(re03);
+    jsx_pr.addRestriccion(re04);
   }
   if (ej != "null") {
     jsx_actualizarProblema();

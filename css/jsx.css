@@ -665,13 +665,26 @@ div.configuracionTitulo+div {
   border-top: 1px solid gray;
 }
 
+#tab_grafica {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+input[type="button"] {
+  background: #3e78b2;
+  color: white;
+  border: 0;
+  padding: .4em .6em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 #jsx_grafica_tabla td {
   vertical-align: top;
 }
 
-#jsx_grafica_tabla {
-  border-collapse: collapse;
-}
+#jsx_grafica_tabla {}
 
 .jsx_xrest {
   border: 0;
@@ -790,6 +803,10 @@ div#tab_acercade p {
     max-height: 20em;
     padding-bottom: 1em;
     /* exagerar sin exagerar */
+  }
+
+  #metGraf {
+    display: none !important;
   }
 
   [type='range'] {
