@@ -238,9 +238,12 @@ function jsx_resolver_matriz(ma, it, es, fa) {
     cont.append(contenido);
   } while (ma01.avanzar());
   if (conAnalisis && parseFloat(ansens[0][21]) >= 0) {
-    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br></br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + "</br>El costo de oportunidad indica en cuánto disminuiría el funcional si fabricáramos una unidad más del producto.</br></br>Valor marginal del recurso 1: $" + ansens[1][2] + "</br>Valor marginal del recurso 2: $" + ansens[1][3] + "</br>Valor marginal del recurso 3: $" + ansens[1][4]);
+    cont.append("<br /><h3>Análisis de sensibilidad</h3><br />Se deben producir " + ansens[0][0] + " unidades del producto 1 y " + ansens[0][1] + " unidades del producto 2 para obtener un ingreso máximo de $" + ansens[0][21] + ".</br></br>Costo de oportunidad del producto 1: $" + ansens[1][0] + "</br>Costo de oportunidad del producto 2: $" + ansens[1][1] + "</br>El costo de oportunidad indica en cuánto disminuiría el funcional si fabricáramos una unidad más del producto.</br></br>Valor marginal del recurso 1: $" + ansens[1][2] + "</br>Valor marginal del recurso 2: $" + ansens[1][3]);
     cont.append("</br>");
-    if (ansens[1][5] != null) {
+    if (ansens[1][4] != null && ansens[1][4] != ansens[0][21]) {
+      cont.append("Valor marginal del recurso 3: $" + ansens[1][4] + "</br>");
+    }
+    if (ansens[1][5] != null && ansens[1][5] != ansens[0][21]) {
       cont.append("Valor marginal del recurso 4: $" + ansens[1][5] + "</br>El valor marginal indica en cuánto incrementaría el funcional si tuviésemos una unidad más del recurso disponible.</br>");
     }
     if (ansens[0][2] == 0) {
