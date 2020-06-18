@@ -46,7 +46,11 @@ a:visited {
 #landing a {
   color: white;
 }
-
+a#github {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
 h1 {
   font-weight: 300;
   font-size: 6em;
