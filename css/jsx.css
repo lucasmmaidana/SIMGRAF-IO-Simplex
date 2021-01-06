@@ -51,6 +51,7 @@ a#github {
     right: 1em;
     top: 1em;
 }
+.navfixed a#github {display:none}
 h1 {
   font-weight: 300;
   font-size: 6em;
